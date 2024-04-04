@@ -1,0 +1,11 @@
+Create Boat constructor
+    constructor returns object with the following properties and functions:
+        integer for length
+        integer for hitCount
+        boolean for isSunk
+        function for hit()
+            handles hits for the ship and increments hitCount
+
+            increment hitCount;
+            if hitCount is more than or equal to length
+                set isSunk to true
