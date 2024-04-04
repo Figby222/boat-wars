@@ -20,6 +20,10 @@ describe("#set-board", () => {
         const board = Gameboard.setBoard();
         expect(board[0][0]).not.toBeNull();
     })
+
+    test("setBoard[9] exists", () => {
+        expect(myBoard[9]).not.toBeNull();
+    })
 })
 
 describe.skip("#place-boat", () => {
