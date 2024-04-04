@@ -1,6 +1,6 @@
 class Gameboard {
     constructor() {
-        this.board = [];
+        this.board = Gameboard.setBoard();
     }
 
     static setBoard() {
@@ -13,7 +13,8 @@ class Gameboard {
     }
 
     placeBoat(boat, coordinates) {
-        
+        const [x, y] = coordinates;
+        this.board[x][y] = boat;
     }
 }
 

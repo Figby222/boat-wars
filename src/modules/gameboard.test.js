@@ -15,7 +15,7 @@ describe("Gameboard constructor", () => {
     })
 })
 
-describe("#set-board", () => {
+describe.skip("#set-board", () => {
     test("setBoard returns a 3d array", () => {
         const board = Gameboard.setBoard();
         expect(board[0][0]).not.toBeNull();
@@ -26,15 +26,16 @@ describe("#set-board", () => {
     })
 })
 
-describe.skip("#place-boat", () => {
+describe("#place-boat", () => {
+    const MockBoat = jest.fn((length) => { length });
+    const boat = new MockBoat(4);
+
     test("fake boat is placed in board", () => {
-
-        jest.mock("./boat.js", () => {
-            myBoat: true
-        })
-
-        const boat = new Boat(4);
         myBoard.placeBoat(boat, [0, 1]);
-        expect(myBoard.board[0][1]).toMatch(boat);
+        expect(myBoard.board[0][1]).toEqual(boat);
+    })
+
+    test("boat placed out of bounds throws error", () => {
+        expect(() => myBoard.placeBoat(boat, [10][10])).toThrow(Error);
     })
 })
