@@ -1,16 +1,23 @@
+/* eslint-disable no-underscore-dangle */
 class Boat {
     constructor(length) {
         this.length = length;
         this.hitCount = 0;
-        this.isSunk = false;
+        this._isSunk = false;
     };
 
     hit() {
         this.hitCount+=1;
 
+        
+    }
+
+    isSunk() {
         if (this.hitCount >= this.length) {
-            this.isSunk = true;
+            this._isSunk = true;
         }
+
+        return this._isSunk;
     }
 };
 
