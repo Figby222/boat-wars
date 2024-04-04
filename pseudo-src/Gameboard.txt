@@ -1,0 +1,24 @@
+Create Gameboard class
+    3d array board
+
+    place ships at specific coordinates
+    by calling ship factory
+
+    receiveAttack() takes coordinates [x, y]
+
+    array of missed attacks
+
+    check if boats have been sunk
+
+    create function setBoard()
+        set board to []
+        for 0 < 10
+            push [] to board
+
+
+    create function placeBoat(boat, [x, y])
+        set board[x][y] to boat
+
+Create Cell class
+    constructor takes an arg "boat = null"
+        set this.boat to boat
