@@ -1,10 +1,17 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-undef */
 import Gameboard from "./gameboard.js";
+import Boat from "./boat.js";
+
+const myBoard = new Gameboard();
+
+beforeEach(() => {
+    myBoard.board = Gameboard.setBoard();
+})
 
 describe("Gameboard constructor", () => {
     test ("It has board property", () => {
-        expect(new Gameboard()).toHaveProperty("board")
+        expect(myBoard).toHaveProperty("board")
     })
 })
 
@@ -17,7 +24,6 @@ describe("#set-board", () => {
 
 describe.skip("#place-boat", () => {
     test("fake boat is placed in board", () => {
-        const myBoard = new Gameboard();
 
         jest.mock("./boat.js", () => {
             myBoat: true
