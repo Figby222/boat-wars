@@ -69,16 +69,16 @@ describe("#receive-attack", () => {
 
 describe("#checkFleet", () => {
     test("It works when board is empty", () => {
-        expect(myBoard.checkFleet()).toBe(true);
+        expect(myBoard.checkFleetDestruction()).toBe(true);
     })
 
     test("It works when the board is not empty", () => {
         myBoard.placeBoat(new Boat(1), [4, 7]);
-        expect(myBoard.checkFleet()).toBe(false);
+        expect(myBoard.checkFleetDestruction()).toBe(false);
     })
 
     test("It works after all boats are destroyed", () => {
         myBoard.receiveAttack([4, 7]);
-        expect(myBoard.checkFleet()).toBe(true);
+        expect(myBoard.checkFleetDestruction()).toBe(true);
     })
 })
