@@ -1,6 +1,6 @@
 class Computer {
-    constructor() {
-
+    constructor(advancedMode = false) {
+        this.advancedMode = advancedMode;
     }
 }
 

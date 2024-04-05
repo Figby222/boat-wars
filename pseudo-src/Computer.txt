@@ -1,2 +1,3 @@
 create Class computer
-    create constructor()
+    create constructor(advancedMode = false)
+        this advancedMode = advancedMode
