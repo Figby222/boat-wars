@@ -1,0 +1,26 @@
+create Player class
+    Players can take turns playing the game
+        by attacking the enemy Gameboard
+    
+    computer makes random plays, and
+        doesn't hit the same spot twice
+        
+    create constructor(Gameboard)
+        set this.gameboard to Gameboard
+        set this.shotsArr to []
+    
+    create function shoot(player, coordinates)
+        if stringified coordinates are in shotsArr
+            throw error with message:
+                "Cell already been shot"
+        
+        call player.receiveAttack(coordinates)
+        push stringified coordinates to shotsArr
+
+    or less coupled:
+    create function shoot(coordinates)
+        if stringified coordinates in shotsArr
+            throw error with message:
+                "Cell already been shot"
+        push stringified coordinates to shotsArr
+        return coordinates
