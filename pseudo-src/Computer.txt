@@ -1,3 +1,25 @@
 create Class computer
     create constructor(advancedMode = false)
         this advancedMode = advancedMode
+        this shotsArr = []
+        if advancedMode
+            set shootAdvanced()
+            set nextMove = []
+        else
+            set shoot
+
+    regularMode shoot(enemyBoard)
+        set x to random int between 0 and 10
+        set y to random int between 0 and 10
+        set coordinates to [x, y]
+
+        if stringified coordinates in shotsArr
+            call shoot(enemyBoard)
+            return
+
+        call enemyBoard.receiveAttack(coordinates)
+        
+
+
+
+    advancedMode shoot(enemyBoard, coordinates)
