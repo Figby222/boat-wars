@@ -1,0 +1,2 @@
+create Class computer
+    create constructor()
