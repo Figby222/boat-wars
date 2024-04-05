@@ -16,8 +16,22 @@ Create Gameboard class
             push [] to board
 
 
-    create function placeBoat(boat, [x, y])
-        set board[x][y] to boat
+    create function placeBoat(boat, direction, [x, y])
+        set board to this.board
+        while direction is horizontal and 0 < boat.length
+            throw error if coordinates are out of bounds
+            if board[x+i][y] has a boat
+                throw error with message that cell is taken up
+
+            set board[x+i][y] to boat
+        while direction is vertical and 0 < boat.length
+            throw error if coordinates are out of bounds
+            if board[x][y+i] has a boat
+                throw error with message that cell is taken up
+            
+            set board[x][y+i] to boat
+
+        return board (OR SET THIS.BOARD TO BOARD)
     
     create function receiveAttack(coordinates)
         deconstruct coordinates into x and y
