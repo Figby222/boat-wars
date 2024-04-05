@@ -34,6 +34,17 @@ class Gameboard {
 
         this.hits.push(JSON.stringify(coordinates));
     }
+
+    checkFleet() {
+        for (let row = 0; row < this.board.length; row+=1) {
+            for(let column = 0; column < this.board[row].length; column+=1) {
+                if (this.board[row][column] && !(this.board[row][column].isSunk())) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 
 export default Gameboard;
