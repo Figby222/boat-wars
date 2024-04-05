@@ -18,6 +18,10 @@ create Player class
         push stringified coordinates to shotsArr
 
     or less coupled:
+
+    create constructor ()
+        set shotsArr to []
+
     create function shoot(coordinates)
         if stringified coordinates in shotsArr
             throw error with message:
