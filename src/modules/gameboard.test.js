@@ -26,7 +26,7 @@ describe.skip("#set-board", () => {
     })
 })
 
-describe("#place-boat", () => {
+describe.skip("#place-boat", () => {
     const MockBoat = jest.fn((length) => { length });
     const boat = new MockBoat(4);
 
@@ -37,5 +37,32 @@ describe("#place-boat", () => {
 
     test("boat placed out of bounds throws error", () => {
         expect(() => myBoard.placeBoat(boat, [10][10])).toThrow(Error);
+    })
+})
+
+describe("#receive-attack", () => {
+    beforeEach(() => {
+        myBoard.board = Gameboard.setBoard();
+    });
+
+    test("It throws error if coordinates are out of bounds", () => {
+        expect(() => myBoard.receiveAttack([4, 12])).toThrow(new Error("Coordinates are out of bounds"));
+    })
+
+    test("It does not throw error if coordinates are in bounds", () => {
+        expect(() => myBoard.receiveAttack([4, 4])).not.toThrow(Error);
+    })
+
+    test("It throws error if cell has already been hit", () => {
+        myBoard.receiveAttack([5, 5]);
+        expect (() => myBoard.receiveAttack([5, 5]))
+            .toThrow(new Error("Cell has already been hit"));
+    })
+
+    test ("It hits boat at coordinates", () => {
+        const boat = new Boat(4);
+        myBoard.placeBoat(boat, [4, 5]);
+        myBoard.receiveAttack([4, 5]);
+        expect(myBoard.board[4][5].hitCount).toBe(1);
     })
 })

@@ -18,6 +18,13 @@ Create Gameboard class
 
     create function placeBoat(boat, [x, y])
         set board[x][y] to boat
+    
+    create function receiveAttack(coordinates)
+        deconstruct coordinates into x and y
+        throw error of coordinates are out of bounds
+        throw error if coordinates have already been hit
+        if ship at coordinates call ship.hit on ship
+        push coordinates to this.hits
 
 Create Cell class
     constructor takes an arg "boat = null"
