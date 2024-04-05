@@ -1,4 +1,11 @@
 Create Gameboard class
+    could store an array of boats
+    in placeboat, could check if coordinates in boats
+    in receiveAttack, could check if coordinates in boats
+    in checkFleet, could check if each boat in boats => boat.isSunk()
+
+
+
     3d array board
 
     place ships at specific coordinates
@@ -39,6 +46,14 @@ Create Gameboard class
         throw error if coordinates have already been hit
         if ship at coordinates call ship.hit on ship
         push coordinates to this.hits
+    
+    create function checkFleet()
+        for each row in board
+            for each ship in row
+                if ship is not null and ship is damaged
+                    return false
+
+        return true
 
 Create Cell class
     constructor takes an arg "boat = null"
