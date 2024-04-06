@@ -26,8 +26,10 @@ describe.skip("#set-board", () => {
     })
 })
 
-describe.skip("#place-boat", () => {
-    const MockBoat = jest.fn((length) => { length });
+describe("#place-boat", () => {
+    const MockBoat = jest.fn((length) => { 
+        return { length } 
+    });
     const boat = new MockBoat(4);
 
     test("fake boat is placed in board", () => {
