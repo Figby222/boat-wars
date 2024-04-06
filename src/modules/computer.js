@@ -15,7 +15,8 @@ class Computer {
                 const coordinates = [x, y];
 
                 if (this.shotsArr.includes(JSON.stringify(coordinates))) {
-                    return this.shoot(enemyBoard);
+                    this.shoot(enemyBoard);
+                    return;
                 }
 
                 this.shotsArr.push(JSON.stringify(coordinates));
