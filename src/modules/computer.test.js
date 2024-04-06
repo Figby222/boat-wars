@@ -2,7 +2,10 @@
 /* eslint-disable import/extensions */
 import Computer from "./computer.js";
 
-const MockGameboard = {receiveAttack: jest.fn(() => true)};
+let MockGameboard = {receiveAttack: jest.fn(() => true)};
+beforeEach(() => {
+    MockGameboard = {receiveAttack: jest.fn(() => true)}
+})
 describe("Constructor", () => {
     test("It creates object", () => {
         expect(typeof new Computer()).toBe("object");
@@ -18,5 +21,11 @@ describe("#shoot", () => {
         const computer = new Computer(false);
         computer.shoot(MockGameboard);
         expect (MockGameboard.receiveAttack.mock.calls).toHaveLength(1);
+    })
+
+    test ("Mock is called with args", () => {
+        const computer = new Computer(false);
+        computer.shoot(MockGameboard);
+        expect (MockGameboard.receiveAttack.mock.calls[0][0]).toBeDefined();
     })
 })
