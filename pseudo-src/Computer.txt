@@ -47,11 +47,11 @@ create Class computer
         if queue is not empty
             if 
 
-    advancedMode shoot()
+    advancedMode shoot(enemyBoard)
         pop from stack
         if shotsArr includes stringified coordinates or 
         coordinates are null
-            call this.shoot()
+            call this.shoot(enemyBoard)
             return
         if stack is not empty
             destruct x and y from end of stack
