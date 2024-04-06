@@ -19,6 +19,9 @@ class Gameboard {
         let i = 0;
         if (direction === "x") {
             for (; i < boat.length; i+=1) {
+                if (board[x+i][y]) {
+                    throw new Error("Boat collides with another boat");
+                }
                 board[x+i][y] = boat;
             }
 
@@ -27,6 +30,9 @@ class Gameboard {
             }
         } else {
             for (; i < boat.length; i+=1) {
+                if (board[x][y+i]) {
+                    throw new Error("Boat collides with another boat");
+                }
                 board[x][y+i] = boat;
             }
 

@@ -56,6 +56,30 @@ describe("#place-boat", () => {
         expect(() => myBoard.placeBoat(boat, [9, 9], "y"))
             .toThrow(new Error("Boat out of bounds"));
     })
+
+    test("It throws error if boats collide on X axis", () => {
+        myBoard.placeBoat(boat, [6, 4], "y");
+        expect(() => myBoard.placeBoat(new MockBoat(4), [4, 7], "x"))
+            .toThrow(new Error("Boat collides with another boat"))
+    })
+
+    test("It throws error if boats collide on Y axis", () => {
+        myBoard.placeBoat(boat, [4, 6], "x");
+        expect(() => myBoard.placeBoat(new MockBoat(4), [7, 4], "y"))
+            .toThrow(new Error("Boat collides with another boat"));
+    })
+
+    test("It does not throw error if boats don't collide on X axis", () => {
+        myBoard.placeBoat(boat, [6, 4], "y");
+        expect (() => myBoard.placeBoat(new MockBoat(4), [0, 0], "x"))
+            .not.toThrow(new Error("Boat collides with another boat"));
+    })
+
+    test("It does not throw error if boats don't collide on Y axis", () => {
+        myBoard.placeBoat(boat, [4, 6], "x");
+        expect(() => myBoard.placeBoat(new MockBoat(4), [0, 0], "y"))
+            .not.toThrow(new Error("Boat collides with another boat"));
+    })
 })
 
 describe("#receive-attack", () => {
