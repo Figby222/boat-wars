@@ -1,7 +1,7 @@
 class Gameboard {
     constructor() {
         this.board = Gameboard.setBoard();
-        this.hits = [];
+        this.missedShots = [];
     }
 
     static setBoard() {
@@ -24,15 +24,16 @@ class Gameboard {
             throw new Error("Coordinates are out of bounds");
         }
 
-        if (this.hits.includes(JSON.stringify(coordinates))) {
-            throw new Error("Cell has already been hit");
-        }
+        // if (this.hits.includes(JSON.stringify(coordinates))) {
+        //     throw new Error("Cell has already been hit");
+        // }
 
         if(this.board[x][y]) {
             this.board[x][y].hit();
+            return;
         }
 
-        this.hits.push(JSON.stringify(coordinates));
+        this.missedShots.push(JSON.stringify(coordinates));
     }
 
     checkFleetDestruction() {

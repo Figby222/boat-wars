@@ -53,11 +53,11 @@ describe("#receive-attack", () => {
         expect(() => myBoard.receiveAttack([4, 4])).not.toThrow(Error);
     })
 
-    test("It throws error if cell has already been hit", () => {
-        myBoard.receiveAttack([5, 5]);
-        expect (() => myBoard.receiveAttack([5, 5]))
-            .toThrow(new Error("Cell has already been hit"));
-    })
+    // test("It throws error if cell has already been hit", () => {
+    //     myBoard.receiveAttack([5, 5]);
+    //     expect (() => myBoard.receiveAttack([5, 5]))
+    //         .toThrow(new Error("Cell has already been hit"));
+    // })
 
     test ("It hits boat at coordinates", () => {
         const boat = new Boat(4);
