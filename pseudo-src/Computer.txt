@@ -4,7 +4,8 @@ create Class computer
         this shotsArr = []
         if advancedMode
             set shootAdvanced()
-            set nextMove = []
+            set stack = []
+            set direction to 0
         else
             set shoot
 
@@ -23,3 +24,46 @@ create Class computer
 
 
     advancedMode shoot(enemyBoard, coordinates)
+
+    or:
+    advancedMode shoot()
+
+        if shotsArr includes stringified coordinates
+            pop from stack
+            return
+        if stack is not empty
+            destruct x and y from end of stack
+            push previousAttack to nextMove
+
+            if direction is 0
+                return [x-1, y]
+            else if direction is 1
+                return [x, y-1]
+            else if direction is 2
+                return [x+1, y]
+            else
+                return [x, y+1]
+        
+        if queue is not empty
+            if 
+
+    advancedMode shoot()
+        pop from stack
+        if shotsArr includes stringified coordinates or 
+        coordinates are null
+            call this.shoot()
+            return
+        if stack is not empty
+            destruct x and y from end of stack
+
+                push to stack [x-1, y]
+                push to stack [x, y-1]
+                push to stack [x+1, y]
+                push to stack [x, y+1]
+        
+        if stack is not empty
+            shoot a random coordinate
+
+        
+        
+
