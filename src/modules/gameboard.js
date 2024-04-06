@@ -13,9 +13,18 @@ class Gameboard {
         return board;
     }
 
-    placeBoat(boat, coordinates) {
+    placeBoat(boat, coordinates, direction) {
         const [x, y] = coordinates;
-        this.board[x][y] = boat;
+        
+        if (direction === "x") {
+            for (let i = 0; i < boat.length; i+=1) {
+                this.board[x+i][y] = boat;
+            }
+        } else {
+            for (let i = 0; i < boat.length; i+=1) {
+                this.board[x][y+i] = boat;
+            }
+        }
     }
 
     receiveAttack(coordinates) {

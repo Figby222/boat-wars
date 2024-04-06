@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable import/extensions */
 /* eslint-disable no-undef */
 import Gameboard from "./gameboard.js";
@@ -15,7 +16,7 @@ describe("Gameboard constructor", () => {
     })
 })
 
-describe.skip("#set-board", () => {
+describe("#set-board", () => {
     test("setBoard returns a 3d array", () => {
         const board = Gameboard.setBoard();
         expect(board[0][0]).not.toBeNull();
@@ -39,6 +40,16 @@ describe("#place-boat", () => {
 
     test("boat placed out of bounds throws error", () => {
         expect(() => myBoard.placeBoat(boat, [10][10])).toThrow(Error);
+    })
+
+    test("It places a boat with the length specified", () => {
+        myBoard.placeBoat(boat, [0, 0], "x");
+        expect (myBoard.board[3][0]).toBeDefined();
+    })
+
+    test("It places a boat with the length specified vertically", () => {
+        myBoard.placeBoat(boat, [0, 0], "y");
+        expect (myBoard.board[0][3]).toBeDefined();
     })
 })
 
