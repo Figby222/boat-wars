@@ -25,6 +25,7 @@ Create Gameboard class
 
     create function placeBoat(boat, direction, [x, y])
         set board to this.board
+        set boat.start to [x, y]
         while direction is horizontal and 0 < boat.length
             throw error if coordinates are out of bounds
             if board[x+i][y] has a boat
