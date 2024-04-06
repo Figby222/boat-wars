@@ -80,6 +80,15 @@ describe("#place-boat", () => {
         expect(() => myBoard.placeBoat(new MockBoat(4), [0, 0], "y"))
             .not.toThrow(new Error("Boat collides with another boat"));
     })
+
+    // test("Board resets if there is a collision", () => {
+    //     myBoard.placeBoat(boat, [6, 4], "y");
+    //     try {
+    //         myBoard.placeBoat(new MockBoat(4), [4, 7], "x");
+    //     } catch (err) {
+    //         expect(() => myBoard[4][7]).toThrow(Error);
+    //     }
+    // })
 })
 
 describe("#receive-attack", () => {
