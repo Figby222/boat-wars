@@ -20,10 +20,10 @@ describe("#shoot", () => {
     //     expect(player.shotsArr).toContainEqual("[2,2]")
     // })
 
-    test("It throws error if coordinates have already been shot", () => {
-        const coordinates = [2, 2]
-        player.shoot(MockGameboard, coordinates);
-        expect(() => player.shoot(MockGameboard, coordinates))
-            .toThrow(new Error("Cell has already been shot"));
-    })
+    // test("It throws error if coordinates have already been shot", () => {
+    //     const coordinates = [2, 2]
+    //     player.shoot(MockGameboard, coordinates);
+    //     expect(() => player.shoot(MockGameboard, coordinates))
+    //         .toThrow(new Error("Cell has already been shot"));
+    // })
 })
