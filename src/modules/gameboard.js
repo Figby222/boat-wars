@@ -15,16 +15,27 @@ class Gameboard {
 
     placeBoat(boat, coordinates, direction) {
         const [x, y] = coordinates;
-        
+        const board = Object.assign([], this.board); // pretty sure this isn't working
+        let i = 0;
         if (direction === "x") {
-            for (let i = 0; i < boat.length; i+=1) {
-                this.board[x+i][y] = boat;
+            for (; i < boat.length; i+=1) {
+                board[x+i][y] = boat;
+            }
+
+            if (x + (i-1) > 10) {
+                throw new Error("Boat out of bounds");
             }
         } else {
-            for (let i = 0; i < boat.length; i+=1) {
-                this.board[x][y+i] = boat;
+            for (; i < boat.length; i+=1) {
+                board[x][y+i] = boat;
+            }
+
+            if (y + (i-1) > 10) {
+                throw new Error("Boat out of bounds");
             }
         }
+
+        this.board = board;
     }
 
     receiveAttack(coordinates) {

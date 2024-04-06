@@ -51,6 +51,11 @@ describe("#place-boat", () => {
         myBoard.placeBoat(boat, [0, 0], "y");
         expect (myBoard.board[0][3]).toBeDefined();
     })
+
+    test("It doesn't place boats out of bounds", () => {
+        expect(() => myBoard.placeBoat(boat, [9, 9], "y"))
+            .toThrow(new Error("Boat out of bounds"));
+    })
 })
 
 describe("#receive-attack", () => {
