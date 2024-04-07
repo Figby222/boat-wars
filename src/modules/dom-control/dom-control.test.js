@@ -6,6 +6,22 @@ const MockDOM = () => ({
     append: jest.fn(() => {}),
     addEventListener: () => {},
     bgColor: "white",
+    querySelector: jest.fn(() => ({
+        classList: {
+            add: jest.fn(() => null)
+        },
+        append: jest.fn(() => {}),
+        addEventListener: () => {},
+        bgColor: "white",
+    })),
+    createElement: jest.fn(() => ({
+        classList: {
+            add: jest.fn(() => null)
+        },
+        append: jest.fn(() => {}),
+        addEventListener: () => {},
+        bgColor: "white",
+    })),
 });
 const MockGameboard = () => ({
     receiveAttack: jest.fn(() => true)
@@ -13,9 +29,11 @@ const MockGameboard = () => ({
 
 let myDOM = new MockDOM();
 let myGameboard = new MockGameboard();
+let DOMCtrl = new DOMControl();
 beforeEach(() => {
     myDOM = new MockDOM();
     myGameboard = new MockGameboard();
+    DOMCtrl = new DOMControl();
 })
 
 describe("Constructor", () => {
@@ -25,5 +43,8 @@ describe("Constructor", () => {
 })
 
 describe("#renderGameboard", () => {
+    test("It creates at least 20 elements", () => {
 
+        expect()
+    })
 })
