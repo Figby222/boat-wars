@@ -7,6 +7,7 @@ const DOMControl = function() {
 DOMControl.prototype.renderGameboard = function(gameboard, id) {
     const boardContainer = document.createElement("div");
     boardContainer.id = id;
+    boardContainer.classList.add("board");
 
     for (let i = 0; i < gameboard.board.length; i+=1) {
         const columnContainer = document.createElement("div");
