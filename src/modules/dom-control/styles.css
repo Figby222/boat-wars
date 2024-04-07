@@ -3,7 +3,8 @@
     --notHit-bg-color: rgb(68, 117, 253);
     --notHit-hover-bg-color: darkorange;
     --miss-bg-color: black;
-    --hit-bg-color: red;
+    --boat-hit-bg-color: red;
+    --boat-visible-bg-color: white;
 }
 
 .board {
@@ -23,8 +24,16 @@
     background-color: var(--miss-bg-color);
 }
 
-.hit {
-    background-color: var(--hit-bg-color);
+.boat {
+    background-color: var(--notHit-bg-color);
+}
+
+.boat.visible {
+    background-color: var(--boat-visible-bg-color);
+}
+
+.boat.hit {
+    background-color: var(--boat-hit-bg-color);
 }
 
 .notHit {
