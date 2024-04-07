@@ -13,7 +13,7 @@ class Gameboard {
         return board;
     }
 
-    placeBoat(boat, coordinates, direction) {
+    placeBoat(boat, coordinates, direction = "x") {
         const [x, y] = coordinates;
         const board = Object.assign([], this.board); // pretty sure this isn't working
         let i = 0;
