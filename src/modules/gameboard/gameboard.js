@@ -24,7 +24,7 @@ class Gameboard {
                 board[x+i][y] = boat;
             }
 
-            if (x + (i-1) > 10) {
+            if (x + (i-1) > 10) { // change later
                 throw new Error("Boat out of bounds");
             }
         } else {
@@ -58,7 +58,7 @@ class Gameboard {
             return true;
         }
 
-        this.board[x][y] = null;
+        this.board[x][y] = false;
         return false;
     }
 
