@@ -9,3 +9,11 @@
 .hit {
     background-color: red;
 }
+
+.notHit {
+    background-color: blue;
+}
+
+.notHit:hover {
+    background-color: darkorange;
+}
