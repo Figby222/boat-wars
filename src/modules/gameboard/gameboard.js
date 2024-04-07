@@ -1,7 +1,6 @@
 class Gameboard {
     constructor() {
         this.board = Gameboard.setBoard();
-        this.missedShots = [];
     }
 
     static setBoard() {
@@ -59,7 +58,7 @@ class Gameboard {
             return true;
         }
 
-        this.missedShots.push(JSON.stringify(coordinates));
+        this.board[x][y] = null;
         return false;
     }
 
