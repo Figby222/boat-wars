@@ -5,9 +5,8 @@ const DOMControl = function() {
 }
 
 DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = false) {
-    const boardContainer = document.createElement("div");
-    boardContainer.id = id;
-    boardContainer.classList.add("board");
+    const boardContainer = document.querySelector(`#${id}`);
+    boardContainer.textContent = "";
 
     for (let i = 0; i < gameboard.board.length; i+=1) {
         for (let i2 = 0; i2 < gameboard.board.length; i2+=1) {
@@ -30,8 +29,6 @@ DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = fals
             boardContainer.appendChild(cellContainer);
         }
     }
-
-    document.querySelector("body").appendChild(boardContainer);
 }
 
 export default DOMControl;
