@@ -10,9 +10,6 @@ DOMControl.prototype.renderGameboard = function(gameboard, id) {
     boardContainer.classList.add("board");
 
     for (let i = 0; i < gameboard.board.length; i+=1) {
-        const columnContainer = document.createElement("div");
-        columnContainer.classList.add("column");
-        columnContainer.classList.add(i);
         for (let i2 = 0; i2 < gameboard.board.length; i2+=1) {
             const cellContainer = document.createElement("div");
             cellContainer.classList.add("cell");
@@ -27,9 +24,8 @@ DOMControl.prototype.renderGameboard = function(gameboard, id) {
             } else {
                 cellContainer.classList.add("hit");
             }
-            columnContainer.appendChild(cellContainer);
+            boardContainer.appendChild(cellContainer);
         }
-        boardContainer.appendChild(columnContainer);
     }
 
     document.querySelector("body").appendChild(boardContainer);
