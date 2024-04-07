@@ -45,7 +45,7 @@ class Gameboard {
 
     receiveAttack(coordinates) {
         const [x, y] = coordinates;
-        if (!(x > 0 && x < this.board.length) || !(y > 0 && y < this.board.length)) {
+        if (!(x >= 0 && x < this.board.length) || !(y >= 0 && y < this.board.length)) {
             throw new Error("Coordinates are out of bounds");
         }
 
