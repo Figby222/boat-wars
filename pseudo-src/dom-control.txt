@@ -50,7 +50,7 @@ create DOMControl class
             
 OR: 
 create DOMControl class
-    create function renderGameboard(gameboard, id, body = document.querySelector(body))
+    create function renderGameboard(gameboard, id)
         Set boardContainer to div#id
         for each column of Gameboard.board
             create columnContainer
@@ -62,13 +62,13 @@ create DOMControl class
                 set x to columnIndex;
                 set y to cellIndex;
                 if missed hit at gameboard.board[x][y]
-                    set cellContainer bgcolor to gray
+                    set cellContainer bgcolor to blue
                 else if boat at gameboard.board[x][y]
-                    set cellContainer bgcolor to red
+                    set cellContainer bgcolor to darkGray
                 else 
                     set cellContainer bgcolor to white
-                    add click listener to cellContainer 
-                        using cellEventHandler
+                add click listener to cellContainer 
+                    using cellEventHandler
 
                 append cellContainer to columnContainer
             append columnContainer to boardContainer
