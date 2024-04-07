@@ -22,7 +22,7 @@ DOMControl.prototype.renderGameboard = function(gameboard, id) {
             } else if (gameboard.board[x][y] === false) {
                 cellContainer.classList.add("miss");
             } else {
-                cellContainer.classList.add("hit");
+                cellContainer.classList.add("boat");
             }
             boardContainer.appendChild(cellContainer);
         }
