@@ -56,10 +56,11 @@ class Gameboard {
 
         if(this.board[x][y]) {
             this.board[x][y].hit();
-            return;
+            return true;
         }
 
         this.missedShots.push(JSON.stringify(coordinates));
+        return false;
     }
 
     checkFleetDestruction() {
