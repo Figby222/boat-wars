@@ -1,20 +1,36 @@
+:root {
+    --board-bg-color: rgb(11, 11, 201);
+    --notHit-bg-color: rgb(68, 117, 253);
+    --notHit-hover-bg-color: darkorange;
+    --miss-bg-color: black;
+    --hit-bg-color: red;
+}
+
+.board {
+    background-color: var(--board-bg-color);
+    display: grid;
+    grid-template-columns: repeat(10, 20px);
+    grid-template-rows: repeat(10, 20px);
+    justify-content: center;
+    align-content: center;
+}
+
 .cell {
-    background-color: blue;
     border-radius: 100%;
 }
 
 .miss {
-    background-color: black;
+    background-color: var(--miss-bg-color);
 }
 
 .hit {
-    background-color: red;
+    background-color: var(--hit-bg-color);
 }
 
 .notHit {
-    background-color: blue;
+    background-color: var(--notHit-bg-color);
 }
 
 .notHit:hover {
-    background-color: darkorange;
+    background-color: var(--notHit-hover-bg-color);
 }
