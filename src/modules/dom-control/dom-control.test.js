@@ -41,6 +41,6 @@ describe("Constructor", () => {
 describe("#renderGameboard", () => {
     test("It creates at least 20 elements", () => {
         DOMCtrl.renderGameboard(new Gameboard(), "player", myDOM)
-        expect()
-    })
+        expect(myDOM.createElement.mock.calls.length).toBeGreaterThan(20);
+    });
 })
