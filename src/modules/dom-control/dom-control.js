@@ -20,7 +20,7 @@ DOMControl.prototype.renderGameboard = function(gameboard, id) {
             const y = i2;
 
             if (gameboard.board[x][y] == null) {
-                cellContainer.classList.add("a"); // hasn't been hit yet
+                cellContainer.classList.add("notHit"); // hasn't been hit yet
             } else if (gameboard.board[x][y] === false) {
                 cellContainer.classList.add("miss");
             } else {
