@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
-// eslint-disable-next-line import/extensions
+/* eslint-disable import/extensions */
 import DOMControl from "./dom-control.js";
+import Gameboard from "../gameboard/gameboard.js";
 
 const MockDOM = () => ({
     append: jest.fn(() => {}),
@@ -23,16 +24,11 @@ const MockDOM = () => ({
         bgColor: "white",
     })),
 });
-const MockGameboard = () => ({
-    receiveAttack: jest.fn(() => true)
-})
 
 let myDOM = new MockDOM();
-let myGameboard = new MockGameboard();
 let DOMCtrl = new DOMControl();
 beforeEach(() => {
     myDOM = new MockDOM();
-    myGameboard = new MockGameboard();
     DOMCtrl = new DOMControl();
 })
 
@@ -44,7 +40,7 @@ describe("Constructor", () => {
 
 describe("#renderGameboard", () => {
     test("It creates at least 20 elements", () => {
-
+        DOMCtrl.renderGameboard(new Gameboard(), "player", myDOM)
         expect()
     })
 })
