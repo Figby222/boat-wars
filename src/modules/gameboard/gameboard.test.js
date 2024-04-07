@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-undef */
 import Gameboard from "./gameboard.js";
-import Boat from "./boat.js";
+import Boat from "../boat/boat.js";
 
 const myBoard = new Gameboard();
 
