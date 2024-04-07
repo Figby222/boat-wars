@@ -4,7 +4,7 @@ const DOMControl = function() {
 
 }
 
-DOMControl.prototype.renderGameboard = function(gameboard, id) {
+DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = false) {
     const boardContainer = document.createElement("div");
     boardContainer.id = id;
     boardContainer.classList.add("board");
@@ -23,6 +23,9 @@ DOMControl.prototype.renderGameboard = function(gameboard, id) {
                 cellContainer.classList.add("miss");
             } else {
                 cellContainer.classList.add("boat");
+                if (setVisible) {
+                    cellContainer.classList.add("visible");
+                }
             }
             boardContainer.appendChild(cellContainer);
         }
