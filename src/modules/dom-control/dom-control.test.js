@@ -7,14 +7,23 @@ const MockDOM = () => ({
     addEventListener: () => {},
     bgColor: "white",
 });
+const MockGameboard = () => ({
+    receiveAttack: jest.fn(() => true)
+})
 
 let myDOM = new MockDOM();
+let myGameboard = new MockGameboard();
 beforeEach(() => {
     myDOM = new MockDOM();
+    myGameboard = new MockGameboard();
 })
 
 describe("Constructor", () => {
     test("It exists", () => {
         expect(new DOMControl()).toBeDefined();
     })
+})
+
+describe("#renderGameboard", () => {
+
 })
