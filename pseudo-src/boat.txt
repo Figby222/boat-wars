@@ -3,6 +3,7 @@ Create Boat constructor
         integer for length
         integer for hitCount
         boolean for isSunk
+        char for direction
         function for hit()
             handles hits for the ship and increments hitCount
 
