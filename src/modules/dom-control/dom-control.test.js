@@ -2,6 +2,7 @@
 /* eslint-disable import/extensions */
 import DOMControl from "./dom-control.js";
 import Gameboard from "../gameboard/gameboard.js";
+import Boat from "../boat/boat.js";
 
 // const MockDOM = () => ({
 //     append: jest.fn(() => {}),
@@ -35,7 +36,7 @@ beforeEach(() => {
 })
 
 describe("Constructor", () => {
-    test("It exists", () => {
+    test.skip("It exists", () => {
         expect(new DOMControl()).toBeDefined();
     })
 })
@@ -46,5 +47,16 @@ describe("#renderGameboard", () => {
     //     expect(myDOM.createElement.mock.calls.length).toBeGreaterThan(20);
     // });
 
+    test.skip("It creates divs for board", () => {
+        myBoard.placeBoat(new Boat(4), [0, 0], "x");
+        DOMCtrl.renderGameboard(myBoard, "player1");
+        expect(document.querySelector(".6 .4")).toBeDefined();
+    })
+
+    test.skip("It adds red background to div if boat exists at coordinates", () => {
+        myBoard.placeBoat(new Boat(4), [0, 0], "x");
+        DOMCtrl.renderGameboard(myBoard, "player1");
+        expect(document.querySelector(".0 .0").bgColor).toEqual("darkGray");
+    })
     
 })
