@@ -69,7 +69,18 @@ create DOMControl class
                     set cellContainer bgcolor to white
                 add click listener to cellContainer 
                     using cellEventHandler
-
+                if classList contains .notHit
+                    add click event listener
+                        remove .notHit
+                        receiveAttack at coordinates
+                        renderGameboard
+                OR:
+                    add empty cell class to cells without boat
+                    in event listener:
+                        add hit class to cellContainer 
+                        remove event listener
+                    in style sheet:
+                        add dark gray bgcolor to .empty-cell.hit
                 append cellContainer to columnContainer
             append columnContainer to boardContainer
         append container to body
