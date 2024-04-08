@@ -3,5 +3,8 @@ Set computer to new Computer;
 Set player1Board to new Gameboard;
 Set computerBoard to new Gameboard;
 
+set bool continueGame to true
+set currentTurn to player1
+
 Populate player1Board with 4 boats randomly
 Populate computerBoard with 4 boats randomly
