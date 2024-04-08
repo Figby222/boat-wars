@@ -26,6 +26,13 @@ DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = fals
                     cellContainer.classList.add("visible");
                 }
             }
+            if (cellContainer.classList.contains("notHit")) {
+                cellContainer.addEventListener("click", () => {
+                    cellContainer.classList.remove("notHit");
+                    gameboard.receiveAttack([x, y]);
+                    this.renderGameboard(gameboard, id, setVisible);
+                })
+            }
             boardContainer.appendChild(cellContainer);
         }
     }
