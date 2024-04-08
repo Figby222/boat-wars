@@ -11,6 +11,8 @@ const player1Board = new Gameboard();
 const computerBoard = new Gameboard();
 const DOMCtrl = new DOMControl();
 
+let currentTurn = player1;
+
 player1Board.placeBoat(new Boat(4), [6, 4], "y");
 player1Board.placeBoat(new Boat(1), [3, 3]);
 player1Board.placeBoat(new Boat(2), [1, 1]);
