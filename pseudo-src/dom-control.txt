@@ -106,3 +106,115 @@ create arrow function cellEventHandler
 
 
 make Gameboard.receiveAttack return true if hit and false if miss
+
+
+
+
+iteration 4: 
+create DOMControl class
+    create function renderGameboard(gameboard, id)
+        Set boardContainer to div#id
+        for each column of Gameboard.board
+            create columnContainer
+            add column class to columnContainer
+            add index class to columnContainer
+            for each cell of column
+                create cellContainer
+                add cell class to cellContainer
+                set x to columnIndex;
+                set y to cellIndex;
+                add <columnIndex>-<cellIndex> class to cellContainer
+                append cellContainer to columnContainer
+                add click listener to cellContainer 
+                    using cellEventHandler
+            append columnContainer to boardContainer
+        append container to DOM
+
+    create function _hitCell(container, gameboard, coordinates)
+        set boatHit to gameboard.receiveAttack(coordinates)
+        if boatHit
+            set container's bgcolor to red
+        else
+            set container's bgcolor to gray
+        
+        remove event listener
+            
+OR: 
+create DOMControl class
+    create function renderGameboard(gameboard, id)
+        Set boardContainer to div#id
+        for each column of Gameboard.board
+            create columnContainer
+            add column class to columnContainer
+            add index class to columnContainer
+            for each cell of column
+                create cellContainer
+                add cell class to cellContainer
+                set x to columnIndex;
+                set y to cellIndex;
+                if set visible
+                    if board at coordinates is null or false
+                        add empty-cell class
+                    else
+                        add boat class
+                
+                if cellContainer doesnt have .hit
+                    add click listener
+                        add hit class
+
+                    in style sheet:
+                        add dark gray bgcolor to .empty-cell.hit
+                append cellContainer to columnContainer
+            append columnContainer to boardContainer
+        append container to body
+
+
+
+
+iteration 5: 
+create DOMControl class
+    create function renderGameboard(gameboard, id)
+        Set boardContainer to div#id
+        for each column of Gameboard.board
+            create columnContainer
+            add column class to columnContainer
+            add index class to columnContainer
+            for each cell of column
+                create cellContainer
+                add cell class to cellContainer
+                set x to columnIndex;
+                set y to cellIndex;
+                add <columnIndex>-<cellIndex> class to cellContainer
+                append cellContainer to columnContainer
+                add click listener to cellContainer 
+                    using cellEventHandler
+            append columnContainer to boardContainer
+        append container to DOM
+
+    create function _hitCell(container, gameboard, coordinates)
+        set boatHit to gameboard.receiveAttack(coordinates)
+        if boatHit
+            set container's bgcolor to red
+        else
+            set container's bgcolor to gray
+        
+        remove event listener
+            
+OR: 
+create DOMControl class
+    create function renderGameboard(gameboard, id)
+        Set boardContainer to div#id
+        for each column of Gameboard.board
+            create columnContainer
+            add column class to columnContainer
+            add index class to columnContainer
+            for each cell of column
+                create cellContainer
+                add cell class to cellContainer
+                set x to columnIndex;
+                set y to cellIndex;
+                if typeof board[x][y] is not a boat 
+                
+                append cellContainer to columnContainer
+            append columnContainer to boardContainer
+        append container to body
