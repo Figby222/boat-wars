@@ -22,7 +22,9 @@ DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = fals
                 cellContainer.classList.add("miss");
             } else {
                 cellContainer.classList.add("boat");
-                if (setVisible) {
+                if (gameboard.board[x][y] === "destroyed") {
+                    cellContainer.classList.add("hit");
+                } else if (setVisible) {
                     cellContainer.classList.add("visible");
                 }
             }
