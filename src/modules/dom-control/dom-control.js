@@ -45,7 +45,6 @@ DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = fals
             
             if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
-                    cellContainer.classList.remove("notShot");
                     gameboard.receiveAttack([x, y]);
                     this.renderGameboard(gameboard, id, setVisible);
                 })
