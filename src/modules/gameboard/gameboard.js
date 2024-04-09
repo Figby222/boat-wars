@@ -55,6 +55,7 @@ class Gameboard {
 
         if(typeof this.board[x][y] === "object") {
             this.board[x][y].hit();
+            this.board[x][y] = "destroyed";
             return true;
         }
 
