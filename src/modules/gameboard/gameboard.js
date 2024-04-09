@@ -53,7 +53,7 @@ class Gameboard {
         //     throw new Error("Cell has already been hit");
         // }
 
-        if(this.board[x][y]) {
+        if(typeof this.board[x][y] === "object") {
             this.board[x][y].hit();
             return true;
         }
