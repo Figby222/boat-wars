@@ -1,8 +1,9 @@
 /* eslint-disable func-names */
 class Computer {
-    constructor(advancedMode = false) {
+    constructor(gameboard, advancedMode = false) {
         this.advancedMode = advancedMode;
         this.shotsArr = [];
+        this.gameboard = gameboard;
 
         if (this.advancedMode) {
             this.shoot = function() {
