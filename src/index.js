@@ -32,6 +32,3 @@ if (currentTurn === player1) {
     DOMCtrl.renderGameboard(player1Board, "player1", false);
     DOMCtrl.renderGameboard(player2Board, "player2", true);
 }
-
-player1Board.receiveAttack([3, 3]);
-player1Board.receiveAttack([0, 1]);
