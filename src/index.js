@@ -9,7 +9,7 @@ const player1 = new Player();
 const player2 = new Computer(false);
 player1.gameboard = new Gameboard();
 player2.gameboard = new Gameboard();
-const DOMCtrl = new DOMControl();
+const DOMCtrl = new DOMControl(player1, player2);
 
 let currentTurn = player1;
 let continueGame = true;
@@ -25,10 +25,10 @@ player2.gameboard.board.placeBoat(new Boat(2), [1, 1]);
 player2.gameboard.board.placeBoat(new Boat(3), [7, 6], "y")
 
 if (currentTurn === player1) {
-    DOMCtrl.renderGameboard(player1.gameboard, "player1", true);
-    DOMCtrl.renderGameboard(player2.gameboard, "player2", false);
+    DOMCtrl.renderGameboard(player1, "player1", true);
+    DOMCtrl.renderGameboard(player2, "player2", false);
 
 } else {
-    DOMCtrl.renderGameboard(player1.gameboard, "player1", false);
-    DOMCtrl.renderGameboard(player2.gameboard, "player2", true);
+    DOMCtrl.renderGameboard(player1, "player1", false);
+    DOMCtrl.renderGameboard(player2, "player2", true);
 }

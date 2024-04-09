@@ -10,10 +10,11 @@ DOMControl.prototype.switchTurn = function(player1, player2) {
     this.currentTurn = this.currentTurn === player1 ? player2 : player1;
 }
 
-DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = false) {
+DOMControl.prototype.renderGameboard = function(player, id, setVisible = false) {
     const boardContainer = document.querySelector(`#${id}`);
     boardContainer.textContent = "";
-
+    const {gameboard} = player;
+    
     for (let x = 0; x < gameboard.board.length; x+=1) {
         for (let y = 0; y < gameboard.board.length; y+=1) {
             const cellContainer = document.createElement("div");
