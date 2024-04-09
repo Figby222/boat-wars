@@ -24,9 +24,14 @@ player2Board.placeBoat(new Boat(1), [3, 3]);
 player2Board.placeBoat(new Boat(2), [1, 1]);
 player2Board.placeBoat(new Boat(3), [7, 6], "y")
 
-DOMCtrl.renderGameboard(player1Board, "player1", true);
-DOMCtrl.renderGameboard(player2Board, "player2", false);
+if (currentTurn === player1) {
+    DOMCtrl.renderGameboard(player1Board, "player1", true);
+    DOMCtrl.renderGameboard(player2Board, "player2", false);
+
+} else {
+    DOMCtrl.renderGameboard(player1Board, "player1", false);
+    DOMCtrl.renderGameboard(player2Board, "player2", true);
+}
 
 player1Board.receiveAttack([3, 3]);
 player1Board.receiveAttack([0, 1]);
-DOMCtrl.renderGameboard(player1Board, "player1", true);
