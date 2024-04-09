@@ -27,5 +27,6 @@ player2Board.placeBoat(new Boat(3), [7, 6], "y")
 DOMCtrl.renderGameboard(player1Board, "player1", true);
 DOMCtrl.renderGameboard(player2Board, "player2", false);
 
+player1Board.receiveAttack([3, 3]);
 player1Board.receiveAttack([0, 1]);
 DOMCtrl.renderGameboard(player1Board, "player1", true);
