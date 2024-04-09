@@ -8,13 +8,12 @@ DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = fals
     const boardContainer = document.querySelector(`#${id}`);
     boardContainer.textContent = "";
 
-    for (let i = 0; i < gameboard.board.length; i+=1) {
-        for (let i2 = 0; i2 < gameboard.board.length; i2+=1) {
+    for (let x = 0; x < gameboard.board.length; x+=1) {
+        for (let y = 0; y < gameboard.board.length; y+=1) {
             const cellContainer = document.createElement("div");
             cellContainer.classList.add("cell");
 
-            const x = i;
-            const y = i2;
+            
             if (setVisible) {
                 if (gameboard.board[x][y] === false) {
                     cellContainer.classList.add("miss");
