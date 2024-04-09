@@ -202,7 +202,7 @@ create DOMControl class
             
 OR: 
 create DOMControl class
-    create function renderGameboard(gameboard, id)
+    create function renderGameboard(gameboard, id, setVisible)
         Set boardContainer to div#id
         for each column of Gameboard.board
             create columnContainer
@@ -213,8 +213,31 @@ create DOMControl class
                 add cell class to cellContainer
                 set x to columnIndex;
                 set y to cellIndex;
-                if typeof board[x][y] is not a boat 
+
+                if (board[x][y] is boat)
+                    add .boat to cellContainer
+                    if setVisible is true
+                        add .visible to cellContainer
+                else if (board[x][y] is false)
+                    add .miss to cellContainer
                 
                 append cellContainer to columnContainer
             append columnContainer to boardContainer
         append container to body
+
+
+
+
+
+
+
+        create function getInput(player1ID, player2ID)
+            switch turn
+            if its player1's turn 
+                add event listeners to player1's board nodelist
+                    that will recall getInput
+                render player2's board without event listeners
+            else
+                render player1's board without event listeners
+                add event listeners to player2's board nodelist
+                    that will recall getInput
