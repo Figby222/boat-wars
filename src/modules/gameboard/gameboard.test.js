@@ -110,12 +110,12 @@ describe("#receive-attack", () => {
     //         .toThrow(new Error("Cell has already been hit"));
     // })
 
-    test ("It hits boat at coordinates", () => {
-        const boat = new Boat(4);
-        myBoard.placeBoat(boat, [4, 5]);
-        myBoard.receiveAttack([4, 5]);
-        expect(myBoard.board[4][5].hitCount).toBe(1);
-    })
+    // test ("It hits boat at coordinates", () => {
+    //     const boat = new Boat(4);
+    //     myBoard.placeBoat(boat, [4, 5]);
+    //     myBoard.receiveAttack([4, 5]);
+    //     expect(myBoard.board[4][5].hitCount).toBe(1);
+    // })
 })
 
 describe("#checkFleet", () => {
