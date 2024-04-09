@@ -13,7 +13,8 @@
 //     }
 // }
 
-const Player = function() {
+const Player = function(gameboard) {
+    this.gameboard = gameboard;
 }
 
 Player.prototype.shoot = function(enemyBoard, coordinates) {
