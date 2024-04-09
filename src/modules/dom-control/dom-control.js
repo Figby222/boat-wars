@@ -15,8 +15,23 @@ DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = fals
 
             const x = i;
             const y = i2;
+            if (setVisible) {
+                if (gameboard.board[x][y] == null) {
+                    cellContainer.classList.add("notHit"); // hasn't been hit yet
+                } else if (gameboard.board[x][y] === false) {
+                    cellContainer.classList.add("miss");
+                } else {
+                    cellContainer.classList.add("boat");
+                    cellContainer.classList.add("visible");
+                    if (gameboard.board[x][y] === "destroyed") {
+                        cellContainer.classList.add("hit");
+                    }
 
-            if (gameboard.board[x][y] == null) {
+                }
+            } 
+            
+            // not setVisible
+            else if (gameboard.board[x][y] !== false && gameboard.board[x][y] !== "destroyed") {
                 cellContainer.classList.add("notHit"); // hasn't been hit yet
             } else if (gameboard.board[x][y] === false) {
                 cellContainer.classList.add("miss");
@@ -28,6 +43,8 @@ DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = fals
                     cellContainer.classList.add("visible");
                 }
             }
+
+            
             if (cellContainer.classList.contains("notHit")) {
                 cellContainer.addEventListener("click", () => {
                     cellContainer.classList.remove("notHit");
