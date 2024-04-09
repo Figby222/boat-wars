@@ -30,7 +30,7 @@ DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = fals
             
             // not setVisible
             else if (gameboard.board[x][y] !== false && gameboard.board[x][y] !== "destroyed") {
-                cellContainer.classList.add("notHit"); // hasn't been hit yet
+                cellContainer.classList.add("notShot"); // hasn't been hit yet
             } else if (gameboard.board[x][y] === false) {
                 cellContainer.classList.add("miss");
             } else {
@@ -43,9 +43,9 @@ DOMControl.prototype.renderGameboard = function(gameboard, id, setVisible = fals
             }
 
             
-            if (cellContainer.classList.contains("notHit")) {
+            if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
-                    cellContainer.classList.remove("notHit");
+                    cellContainer.classList.remove("notShot");
                     gameboard.receiveAttack([x, y]);
                     this.renderGameboard(gameboard, id, setVisible);
                 })
