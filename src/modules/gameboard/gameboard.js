@@ -14,7 +14,7 @@ class Gameboard {
 
     placeBoat(boat, coordinates, direction = "x") {
         const [x, y] = coordinates;
-        const board = Object.assign([], this.board); // pretty sure this isn't working
+        const board = Object.assign([], this.board);
         let i = 0;
         if (direction === "x") {
             for (; i < boat.length; i+=1) {
@@ -48,10 +48,6 @@ class Gameboard {
         if (!(x >= 0 && x < this.board.length) || !(y >= 0 && y < this.board.length)) {
             throw new Error("Coordinates are out of bounds");
         }
-
-        // if (this.hits.includes(JSON.stringify(coordinates))) {
-        //     throw new Error("Cell has already been hit");
-        // }
 
         if(typeof this.board[x][y] === "object") {
             this.board[x][y].hit();
