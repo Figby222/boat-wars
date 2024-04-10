@@ -53,6 +53,10 @@ DOMControl.prototype.renderGameboard = function(player, id, setVisible = false) 
                 cellContainer.addEventListener("click", () => {
                     gameboard.receiveAttack([x, y]);
                     this.renderGameboard(player, id, setVisible);
+
+                    this.player2.shoot(this.player1.gameboard);
+                    this.renderGameboard(this.player1, "player1", true);
+
                 })
             }
             boardContainer.appendChild(cellContainer);
