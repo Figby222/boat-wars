@@ -66,7 +66,8 @@ class Gameboard {
     checkFleetDestruction() {
         for (let row = 0; row < this.board.length; row+=1) {
             for(let column = 0; column < this.board[row].length; column+=1) {
-                if (this.board[row][column] && !(this.board[row][column].isSunk())) {
+                const currentCell = this.board[row][column];
+                if (currentCell && currentCell !== "destroyed" && !(currentCell.isSunk())) {
                     return false;
                 }
             }
