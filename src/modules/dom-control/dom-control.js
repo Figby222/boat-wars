@@ -51,7 +51,9 @@ DOMControl.prototype.renderGameboard = function(player, id, setVisible = false) 
             
             if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
-                    gameboard.receiveAttack([x, y]);
+                    if (player.isTurn) {
+                        gameboard.receiveAttack([x, y]);
+                    }
                 })
             }
             boardContainer.appendChild(cellContainer);
