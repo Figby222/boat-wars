@@ -22,7 +22,7 @@ body {
 }
 
 .grid-container {
-    background-color:darkcyan;
+    background-color:red;
     display: grid;
     align-content: center;
     justify-items: center;
