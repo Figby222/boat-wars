@@ -1,0 +1,46 @@
+:root {
+    --board-bg-color: rgb(11, 11, 201);
+    --cell-bg-color: rgb(68, 117, 253);
+    --notShot-hover-bg-color: darkorange;
+    --miss-bg-color: black;
+    --boat-hit-bg-color: red;
+    --boat-visible-bg-color: white;
+}
+
+.board {
+    background-color: var(--board-bg-color);
+    display: grid;
+    grid-template-columns: repeat(10, 20px);
+    grid-template-rows: repeat(10, 20px);
+    justify-content: center;
+    align-content: center;
+}
+
+.cell {
+    border-radius: 100%;
+    background-color: var(--cell-bg-color);
+}
+
+.miss {
+    background-color: var(--miss-bg-color);
+}
+
+.boat {
+    background-color: var(--cell-bg-color);
+}
+
+.boat.visible {
+    background-color: var(--boat-visible-bg-color);
+}
+
+.boat.hit {
+    background-color: var(--boat-hit-bg-color);
+}
+
+.notShot {
+    background-color: var(--cell-bg-color);
+}
+
+.notShot:hover {
+    background-color: var(--notShot-hover-bg-color);
+}
