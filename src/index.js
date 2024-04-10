@@ -42,6 +42,7 @@ if (DOMCtrl.currentTurn === player1) {
 } else {;
     DOMCtrl.renderGameboard(player1, "player1", false);
     DOMCtrl.renderGameboard(player2, "player2", true);
+    player2.shoot(player1.gameboard);
 }
 
 if (player1.gameboard.checkFleetDestruction()) {
