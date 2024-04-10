@@ -28,6 +28,8 @@ body {
     justify-items: center;
     gap: 20px;
     box-sizing:border-box;
+    border: 20px solid red;
+    border-radius: 30px;
 }
 
 .board {
