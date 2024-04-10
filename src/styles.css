@@ -18,8 +18,8 @@ body {
 .board {
     background-color: var(--board-bg-color);
     display: grid;
-    grid-template-columns: repeat(10, 20px);
-    grid-template-rows: repeat(10, 20px);
+    grid-template-columns: repeat(10, minmax(20px, 1fr));
+    grid-template-rows: repeat(10, minmax(20px, 1fr));
     justify-content: center;
     align-content: center;
 }
