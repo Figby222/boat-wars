@@ -61,9 +61,13 @@ DOMControl.prototype.renderGameboard = function(player, id, setVisible = false) 
                     this.player2.shoot(this.player1.gameboard);
                     
                     if (this.player1.gameboard.checkFleetDestruction()) {
-                        console.log("Player2 wins");
-                    } else if (this.player2.gameboard.checkFleetDestruction()) {
-                        console.log("Player1 wins")
+                        this.gameOver("Player2")
+                        return;
+                    } 
+                    
+                    if (this.player2.gameboard.checkFleetDestruction()) {
+                        this.gameOver("Player1")
+                        return;
                     }
 
                     this.renderGameboard(this.player1, "player1", true);
@@ -75,6 +79,19 @@ DOMControl.prototype.renderGameboard = function(player, id, setVisible = false) 
             boardContainer.appendChild(cellContainer);
         }
     }
+}
+
+
+DOMControl.prototype.gameOver = function(winner) {
+    document.querySelector("#player1").remove();
+    document.querySelector("#player2").remove();
+    
+    const winBanner = document.createElement("div");
+    winBanner.classList.add("win-banner");
+    winBanner.textContent = `${winner} wins!`;
+    
+    document.querySelector("body").appendChild(winBanner);
+
 }
 
 // DOMControl.prototype.renderGameboardVisible = function(gameboard, id) {
