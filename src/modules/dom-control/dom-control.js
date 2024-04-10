@@ -95,4 +95,14 @@ DOMControl.prototype.renderGameboardVisible = function(gameboard, id) {
     }
 }
 
+DOMControl.prototype.getInput = function(playerid) {
+    const cellList = document.querySelector(`#${playerid}`);
+    Array.from(cellList);
+    cellList.forEach((cell) => {
+        cell.addEventListener("click", () => {
+            return cell.coordinates;
+        })
+    })
+}
+
 export default DOMControl;
