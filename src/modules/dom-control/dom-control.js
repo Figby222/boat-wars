@@ -51,9 +51,25 @@ DOMControl.prototype.renderGameboard = function(player, id, setVisible = false) 
             
             if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
-                    if (player.isTurn) {
+                    if (this.currentTurn !== this.player2) {
                         gameboard.receiveAttack([x, y]);
+                        
+                        // this.renderGameboard(this.player1, "player1", true);
+                        // this.renderGameboard(this.player2, "player2", false);
                     }
+
+                    this.player2.shoot(this.player1.gameboard);
+                    
+                    if (this.player1.gameboard.checkFleetDestruction()) {
+                        console.log("Player2 wins");
+                    } else if (this.player2.gameboard.checkFleetDestruction()) {
+                        console.log("Player1 wins")
+                    }
+
+                    this.renderGameboard(this.player1, "player1", true);
+                    this.renderGameboard(this.player2, "player2", false);
+                    
+                    this.switchTurn();
                 })
             }
             boardContainer.appendChild(cellContainer);
