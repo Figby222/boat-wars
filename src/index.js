@@ -13,6 +13,7 @@ const DOMCtrl = new DOMControl(player1, player2);
 
 let currentTurn = player1;
 let continueGame = true;
+let winner;
 
 player1.gameboard.placeBoat(new Boat(4), [6, 4], "y");
 player1.gameboard.placeBoat(new Boat(1), [3, 3]);
@@ -41,4 +42,10 @@ if (DOMCtrl.currentTurn === player1) {
 } else {;
     DOMCtrl.renderGameboard(player1, "player1", false);
     DOMCtrl.renderGameboard(player2, "player2", true);
+}
+
+if (player1.gameboard.checkFleetDestruction()) {
+    winner = player2;
+} else if (player2.gameboard.checkFleetDestruction()) {
+    winner = player1;
 }
