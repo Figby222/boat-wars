@@ -7,6 +7,10 @@
     --boat-visible-bg-color: white;
 }
 
+body {
+    background-color: black;
+}
+
 .board {
     background-color: var(--board-bg-color);
     display: grid;
