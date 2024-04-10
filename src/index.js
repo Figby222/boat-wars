@@ -14,15 +14,15 @@ const DOMCtrl = new DOMControl(player1, player2);
 let currentTurn = player1;
 let continueGame = true;
 
-player1.gameboard.board.placeBoat(new Boat(4), [6, 4], "y");
-player1.gameboard.board.placeBoat(new Boat(1), [3, 3]);
-player1.gameboard.board.placeBoat(new Boat(2), [1, 1]);
-player1.gameboard.board.placeBoat(new Boat(3), [7, 6], "y");
+player1.gameboard.placeBoat(new Boat(4), [6, 4], "y");
+player1.gameboard.placeBoat(new Boat(1), [3, 3]);
+player1.gameboard.placeBoat(new Boat(2), [1, 1]);
+player1.gameboard.placeBoat(new Boat(3), [7, 6], "y");
 
-player2.gameboard.board.placeBoat(new Boat(4), [6, 4], "y");
-player2.gameboard.board.placeBoat(new Boat(1), [3, 3]);
-player2.gameboard.board.placeBoat(new Boat(2), [1, 1]);
-player2.gameboard.board.placeBoat(new Boat(3), [7, 6], "y")
+player2.gameboard.placeBoat(new Boat(4), [6, 4], "y");
+player2.gameboard.placeBoat(new Boat(1), [3, 3]);
+player2.gameboard.placeBoat(new Boat(2), [1, 1]);
+player2.gameboard.placeBoat(new Boat(3), [7, 6], "y")
 
 if (currentTurn === player1) {
     DOMCtrl.renderGameboard(player1, "player1", true);
