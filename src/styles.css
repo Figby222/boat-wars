@@ -5,6 +5,8 @@
     --miss-bg-color: black;
     --boat-hit-bg-color: red;
     --boat-visible-bg-color: white;
+
+    box-sizing: border-box
 }
 
 body {
