@@ -26,8 +26,8 @@ player2.gameboard.placeBoat(new Boat(3), [7, 6], "y")
 const DOMCtrl = new DOMControl(player1, player2);
 
 if (DOMCtrl.currentTurn === player1) {
-    DOMCtrl.renderGameboard(player1, "player1", true);
-    DOMCtrl.renderGameboard(player2, "player2", false);
+    DOMCtrl.renderPlayer1Gameboard(player1, "player1", true);
+    DOMCtrl.renderPlayer2Gameboard(false);
 
 } else {;
     DOMCtrl.renderGameboard(player1, "player1", false);
