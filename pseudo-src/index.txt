@@ -8,3 +8,14 @@ set currentTurn to player1
 
 Populate player1Board with 4 boats randomly
 Populate computerBoard with 4 boats randomly
+
+set boatCount to 0
+add event listener to new boat button
+    increment boatCount
+    get coordinates from DOM
+    get boat size from DOM
+    place boat at coordinates
+    place boat with equal size in CPU board
+
+    if boatCount is greater than 4
+        start game
