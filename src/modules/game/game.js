@@ -22,6 +22,8 @@ class Game {
             const enemyBoard = this.player1.gameboard;
             this.player2.shoot(enemyBoard, coordinates);
         }
+        
+        this.switchTurn();
     }
 
     checkGameOver() {
