@@ -15,7 +15,8 @@ class Gameboard {
         return board;
     }
 
-    placeBoat(boat, coordinates, direction = "x") {
+    placeBoat(boatLength, coordinates, direction = "x") {
+        const boat = new Boat(boatLength);
         const [x, y] = coordinates;
         const board = Object.assign([], this.board);
         let i = 0;
