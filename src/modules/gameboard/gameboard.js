@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/extensions
+import Boat from "../boat/boat.js";
+
 class Gameboard {
     constructor() {
         this.board = Gameboard.setBoard();
