@@ -6,6 +6,12 @@ beforeEach(() => {
     game = new Game("player1");
 })
 
-test("playRound shoots gameboard", () => {
-    
+
+describe("gameOver", () => {
+    test("It returns true when no boats are placed", () => {
+        expect (game.gameOver()).toBe(true);
+    })
+})
+test.skip("playRound shoots gameboard", () => {
+    game.playRound([4, 3]);
 })
