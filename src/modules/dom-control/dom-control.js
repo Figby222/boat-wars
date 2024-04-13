@@ -9,7 +9,7 @@ DOMControl.prototype.switchTurn = function(player1, player2) {
 DOMControl.prototype.renderPlayer1Gameboard = function(setVisible = false) {
     const boardContainer = document.querySelector("#player1");
     boardContainer.textContent = "";
-    const {gameboard} = this.player1;
+    const {gameboard} = this.game.player1;
     
     for (let x = 0; x < gameboard.board.length; x+=1) {
         for (let y = 0; y < gameboard.board.length; y+=1) {
@@ -57,7 +57,7 @@ DOMControl.prototype.renderPlayer1Gameboard = function(setVisible = false) {
 DOMControl.prototype.renderPlayer2Gameboard = function(setVisible) {
     const boardContainer = document.querySelector("#player2");
     boardContainer.textContent = "";
-    const {gameboard} = this.player2;
+    const {gameboard} = this.game.player2;
     
     for (let x = 0; x < gameboard.board.length; x+=1) {
         for (let y = 0; y < gameboard.board.length; y+=1) {
