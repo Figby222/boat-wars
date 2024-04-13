@@ -1,8 +1,9 @@
 // eslint-disable-next-line import/extensions
 import Game from "./game.js";
 
+let game; 
 beforeEach(() => {
-    const game = new Game(false);
+    game = new Game("player1");
 })
 
 test("playRound shoots gameboard", () => {
