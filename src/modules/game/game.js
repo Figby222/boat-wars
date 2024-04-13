@@ -6,6 +6,8 @@ class Game {
     constructor(player1Name, player2Name = "computer") {
         this.player1 = new Player(new Gameboard(), player1Name);
         this.player2 = new Player(new Gameboard(), player2Name);
+
+        this.currentTurn = this.player1;
     }
 
     playRound(coordinates) {
