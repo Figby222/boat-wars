@@ -1,0 +1,23 @@
+game constructor(player1, player2 = new computer)
+    current turn is player1
+
+    function switchTurn
+        set current turn to player2 if it's player1
+        vice versa
+
+    function playRound(coordinates)
+        if its player1s turn
+            call player1.shoot(player2 board, coordinates)
+            if player2 is dead call gameOver(player1)
+
+            render Player2's gameboard as visible
+            and Player1's as invisible
+        otherwise 
+            shoot player 1 board at coordinates
+            if player1 is dead call gameOver(player2)
+
+            render Player2's gameboard as visible
+            and Player1's as invisible
+
+    function gameOver(winner)
+        call DOMControl.setWinnerBanner(winner)
