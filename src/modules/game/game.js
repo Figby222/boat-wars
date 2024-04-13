@@ -8,7 +8,7 @@ class Game {
         const player2 = new Player(new Gameboard(), player2Name);
     }
 
-    gameOver() {
+    checkGameOver() {
         return true;
     }
 }

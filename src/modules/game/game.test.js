@@ -9,7 +9,7 @@ beforeEach(() => {
 
 describe("gameOver", () => {
     test("It returns true when no boats are placed", () => {
-        expect (game.gameOver()).toBe(true);
+        expect (game.checkGameOver()).toBe(true);
     })
 })
 test.skip("playRound shoots gameboard", () => {
