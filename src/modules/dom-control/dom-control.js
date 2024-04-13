@@ -47,26 +47,6 @@ DOMControl.prototype.renderPlayer1Gameboard = function(setVisible = false) {
             
             if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
-                    if (this.currentTurn === this.player2) {
-                        gameboard.receiveAttack([x, y]);
-                    }
-
-                    // this.player2.shoot(this.player1.gameboard);
-                    
-                    if (this.player1.gameboard.checkFleetDestruction()) {
-                        this.gameOver("Player2")
-                        return;
-                    } 
-                    
-                    if (this.player2.gameboard.checkFleetDestruction()) {
-                        this.gameOver("Player1")
-                        return;
-                    }
-
-                    this.renderPlayer1Gameboard(true);
-                    this.renderPlayer2Gameboard(false);
-                    
-                    // this.switchTurn();
                 })
             }
             boardContainer.appendChild(cellContainer);
@@ -115,26 +95,6 @@ DOMControl.prototype.renderPlayer2Gameboard = function(setVisible) {
             
             if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
-                    if (this.currentTurn === this.player1) {
-                        gameboard.receiveAttack([x, y]);
-                    }
-
-                    // this.player2.shoot(this.player1.gameboard);
-                    
-                    if (this.player1.gameboard.checkFleetDestruction()) {
-                        this.gameOver("Player2")
-                        return;
-                    } 
-                    
-                    if (this.player2.gameboard.checkFleetDestruction()) {
-                        this.gameOver("Player1")
-                        return;
-                    }
-
-                    this.renderPlayer1Gameboard(true);
-                    this.renderPlayer2Gameboard(false);
-                    
-                    // this.switchTurn();
                 })
             }
             boardContainer.appendChild(cellContainer);
