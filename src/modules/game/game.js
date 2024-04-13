@@ -17,11 +17,11 @@ class Game {
         const player1Gameboard = this.player1.gameboard;
         const player2Gameboard = this.player2.gameboard;
         if (player1Gameboard.checkFleetDestruction()) {
-            return "player1";
+            return "player2";
         }
 
         if (player2Gameboard.checkFleetDestruction()) {
-            return "player2";
+            return "player1";
         }
     }
 }
