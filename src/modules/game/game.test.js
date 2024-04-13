@@ -26,11 +26,28 @@ describe("gameOver", () => {
 
 describe("playRound", () => {
     test("playRound shoots gameboard", () => {
-        game.player1.gameboard.placeBoat(1, [4, 3]);
-        game.player2.gameboard.placeBoat(1, [4, 3]);
+        player1Gameboard.placeBoat(1, [4, 3]);
+        player2Gameboard.placeBoat(1, [4, 3]);
         game.playRound([4, 3]);
 
         expect(game.checkGameOver()).toBeTruthy();
+    })
+
+    test("It switches turn after each call", () => {
+        player1Gameboard.placeBoat(1, [4, 3]);
+        player2Gameboard.placeBoat(1, [4, 3]);
+        game.playRound([3, 3]);
+        game.playRound([4, 3]);
+        
+        expect(game.checkGameOver()).toBe("player2");
+    })
+    
+    test("Player1 shoots on the first turn", () => {
+        player1Gameboard.placeBoat(1, [4, 3]);
+        player2Gameboard.placeBoat(1, [4, 3]);
+        game.playRound([4, 3]);
+        
+        expect(game.checkGameOver()).toBe("player1");
     })
 
 })

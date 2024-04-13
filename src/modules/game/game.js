@@ -11,8 +11,13 @@ class Game {
     }
 
     playRound(coordinates) {
-        const enemyBoard = this.player2.gameboard;
-        this.player1.shoot(enemyBoard, coordinates);
+        if (this.currentTurn === this.player1) {
+            const enemyBoard = this.player2.gameboard;
+            this.player1.shoot(enemyBoard, coordinates);
+        } else {
+            const enemyBoard = this.player1.gameboard;
+            this.player2.shoot(enemyBoard, coordinates);
+        }
     }
 
     checkGameOver() {
