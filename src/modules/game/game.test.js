@@ -1,9 +1,13 @@
 // eslint-disable-next-line import/extensions
 import Game from "./game.js";
 
-let game; 
+let game;
+let player1Gameboard;
+let player2Gameboard;
 beforeEach(() => {
     game = new Game("player1");
+    player1Gameboard = game.player1.gameboard;
+    player2Gameboard = game.player2.gameboard;
 })
 
 
