@@ -1,5 +1,5 @@
-const DOMControl = function() {
-
+const DOMControl = function(game) {
+    this.game = game;
 }
 
 DOMControl.prototype.switchTurn = function(player1, player2) {
