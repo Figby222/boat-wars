@@ -19,6 +19,14 @@ describe("gameOver", () => {
         expect(game.checkGameOver()).not.toBeTruthy();
     })
 })
-test.skip("playRound shoots gameboard", () => {
-    game.playRound([4, 3]);
+
+describe("playRound", () => {
+    test("playRound shoots gameboard", () => {
+        game.player1.gameboard.placeBoat(1, [4, 3]);
+        game.player2.gameboard.placeBoat(1, [4, 3]);
+        game.playRound([4, 3]);
+
+        expect(game.checkGameOver()).toBeTruthy();
+    })
+
 })

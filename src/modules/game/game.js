@@ -8,6 +8,11 @@ class Game {
         this.player2 = new Player(new Gameboard(), player2Name);
     }
 
+    playRound(coordinates) {
+        const enemyBoard = this.player2.gameboard;
+        this.player1.shoot(enemyBoard, coordinates);
+    }
+
     checkGameOver() {
         const player1Gameboard = this.player1.gameboard;
         const player2Gameboard = this.player2.gameboard;
