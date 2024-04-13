@@ -241,3 +241,15 @@ create DOMControl class
                 render player1's board without event listeners
                 add event listeners to player2's board nodelist
                     that will recall getInput
+
+
+
+cell event listenener:
+    Call game.playRound(coordinates)
+
+    store return value of game.checkGameOver() into gameOverStatus
+    if gameOverStatus is truthy
+        Call this.gameOver(gameOverStatus)
+        return
+    
+    render each gameboard
