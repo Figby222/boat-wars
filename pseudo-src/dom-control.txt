@@ -253,3 +253,57 @@ cell event listenener:
         return
     
     render each gameboard
+
+
+Create function getBoatPlacement(player)
+    if player is computer
+        if can't place boat at random coordinates
+        recall getBoatPlacement(player)
+
+    while boat is invalid
+        store user input in coordinates
+        if coordinates are invalid
+            prompt user to reenter voordinates
+        else if coordinates collide with a different boat
+            prompt user to reenter coordinates
+
+create function newGame()
+    set btn to form confirm button
+    add event listener to button
+        select input for boat1X, boat1Y, length
+        select input for boat2X, boat2Y, length
+        etc.
+
+        for computer:
+            take the length of boat1, boat2, etc.
+            but randomize the coordinates
+
+            try
+                for each boat in boats
+                placeboat(boat coordinates, boat length);
+            catch error
+                call recall newGame
+                return
+    
+    render the gameboards  
+
+    OR:
+
+    create funciton newGame
+        on addboats event listener
+        set i to 1
+        do 
+            set error to false
+
+            try
+                place boat at random coordinates on player1 gameboard
+                increment i 
+            catch error
+                set error to true
+        while i is less than 5 and error is false
+
+        repeat for player2
+
+
+
+
