@@ -10,6 +10,10 @@ class Game {
         this.currentTurn = this.player1;
     }
 
+    switchTurn() {
+        this.currentTurn = this.currentTurn === this.player1 ? this.player2 : this.player1;
+    }
+
     playRound(coordinates) {
         if (this.currentTurn === this.player1) {
             const enemyBoard = this.player2.gameboard;
