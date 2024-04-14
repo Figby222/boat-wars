@@ -17,6 +17,7 @@ class Computer {
                 }
 
                 if (currentCoordinates) {
+                    this.shotsArr.push(JSON.stringify(currentCoordinates));
                     try {
                         const isHit = enemyBoard.receiveAttack(currentCoordinates);
                         if (isHit) {
