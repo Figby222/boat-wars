@@ -26,6 +26,9 @@ randomizeBoatsBtn.addEventListener("click", (e) => {
 
 startGameBtn.addEventListener("click", (e) => {
     e.preventDefault();
+
+    randomizeBoatsBtn.remove();
+    startGameBtn.remove();
     
     display.renderPlayer1Gameboard(game, game.player1.gameboard, true);
     display.renderPlayer2Gameboard(game, game.player2.gameboard, false);
