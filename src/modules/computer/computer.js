@@ -21,7 +21,6 @@ class Computer {
                     try {
                         const isHit = enemyBoard.receiveAttack(currentCoordinates);
                         if (isHit) {
-                            coordinateStack = [];
                             const [x, y] = currentCoordinates;
 
                             coordinateStack.push([x-1, y]);
