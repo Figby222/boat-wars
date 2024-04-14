@@ -6,10 +6,9 @@ DOMControl.prototype.switchTurn = function(player1, player2) {
     this.currentTurn = this.currentTurn === player1 ? player2 : player1;
 }
 
-DOMControl.prototype.renderPlayer1Gameboard = function(setVisible = false) {
+DOMControl.prototype.renderPlayer1Gameboard = function(gameboard, setVisible = false) {
     const boardContainer = document.querySelector("#player1");
     boardContainer.textContent = "";
-    const {gameboard} = this.game.player1;
     
     for (let x = 0; x < gameboard.board.length; x+=1) {
         for (let y = 0; y < gameboard.board.length; y+=1) {
@@ -66,10 +65,9 @@ DOMControl.prototype.renderPlayer1Gameboard = function(setVisible = false) {
     }
 }
 
-DOMControl.prototype.renderPlayer2Gameboard = function(setVisible) {
+DOMControl.prototype.renderPlayer2Gameboard = function(gameboard, setVisible) {
     const boardContainer = document.querySelector("#player2");
     boardContainer.textContent = "";
-    const {gameboard} = this.game.player2;
     
     for (let x = 0; x < gameboard.board.length; x+=1) {
         for (let y = 0; y < gameboard.board.length; y+=1) {
