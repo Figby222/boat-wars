@@ -23,10 +23,10 @@ class Computer {
                             coordinateStack = [];
                             const [x, y] = currentCoordinates;
 
-                            coordinateStack.push(x-1, y);
-                            coordinateStack.push(x, y-1);
-                            coordinateStack.push(x+1, y);
-                            coordinateStack.push(x, y+1);
+                            coordinateStack.push([x-1, y]);
+                            coordinateStack.push([x, y-1]);
+                            coordinateStack.push([x+1, y]);
+                            coordinateStack.push([x, y+1]);
                         }
                     } catch (err) {
                         this.shoot(enemyBoard);
