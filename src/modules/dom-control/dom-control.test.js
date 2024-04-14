@@ -3,6 +3,7 @@
 import DOMControl from "./dom-control.js";
 import Gameboard from "../gameboard/gameboard.js";
 import Boat from "../boat/boat.js";
+import Game from "../game/game.js";
 
 // const MockDOM = () => ({
 //     append: jest.fn(() => {}),
