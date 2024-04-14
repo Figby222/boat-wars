@@ -16,19 +16,23 @@ class Game {
     }
 
     playRound(coordinates) {
-        if (this.currentTurn === this.player1) {
-            const enemyBoard = this.player2.gameboard;
-            this.player1.shoot(enemyBoard, coordinates);
-            this.display.renderPlayer1Gameboard(this, this.player1.gameboard, false);
-            this.display.renderPlayer2Gameboard(this, this.player2.gameboard, true);
+        if (this.player2.name === "computer") {
+
         } else {
-            const enemyBoard = this.player1.gameboard;
-            this.player2.shoot(enemyBoard, coordinates);
-            this.display.renderPlayer1Gameboard(this, this.player1.gameboard, true);
-            this.display.renderPlayer2Gameboard(this, this.player2.gameboard, false);
+            if (this.currentTurn === this.player1) {
+                const enemyBoard = this.player2.gameboard;
+                this.player1.shoot(enemyBoard, coordinates);
+                this.display.renderPlayer1Gameboard(this, this.player1.gameboard, false);
+                this.display.renderPlayer2Gameboard(this, this.player2.gameboard, true);
+            } else {
+                const enemyBoard = this.player1.gameboard;
+                this.player2.shoot(enemyBoard, coordinates);
+                this.display.renderPlayer1Gameboard(this, this.player1.gameboard, true);
+                this.display.renderPlayer2Gameboard(this, this.player2.gameboard, false);
+            }
+            
+            this.switchTurn();
         }
-        
-        this.switchTurn();
 
         const winner = this.checkGameOver();
         if (winner) {
