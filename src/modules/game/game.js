@@ -29,6 +29,11 @@ class Game {
         }
         
         this.switchTurn();
+
+        const winner = this.checkGameOver();
+        if (winner) {
+            this.display.gameOver(winner);
+        }
     }
 
     checkGameOver() {
