@@ -127,8 +127,7 @@ DOMControl.prototype.renderPlayer2Gameboard = function(setVisible) {
 
 
 DOMControl.prototype.gameOver = function(winner) {
-    document.querySelector("#player1").remove();
-    document.querySelector("#player2").remove();
+    document.querySelector(".grid-container").remove();
     
     const winBanner = document.createElement("div");
     winBanner.classList.add("win-banner");
