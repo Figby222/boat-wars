@@ -88,4 +88,7 @@ header {
     justify-content: center;
     align-content: center;
     font-size: 4rem;
+    box-sizing: border-box;
+    border: 10px solid red;
+    border-radius: 30px;
 }
