@@ -4,6 +4,7 @@ class Computer {
         this.advancedMode = advancedMode;
         this.shotsArr = [];
         this.gameboard = gameboard;
+        this.name = "computer";
 
         if (this.advancedMode) {
             this.shoot = function() {
