@@ -19,9 +19,9 @@ class Gameboard {
         const boat = new Boat(boatLength);
         const [x, y] = coordinates;
         const board = Object.assign([], this.board);
-        let i = 0;
+        let i;
         if (direction === "x") {
-            for (; i < boat.length; i+=1) {
+            for (i = 0; i < boat.length; i+=1) {
                 if (board[x+i][y]) {
                     throw new Error("Boat collides with another boat");
                 }
@@ -32,7 +32,7 @@ class Gameboard {
                 throw new Error("Boat out of bounds");
             }
         } else {
-            for (; i < boat.length; i+=1) {
+            for (i = 0; i < boat.length; i+=1) {
                 if (board[x][y+i]) {
                     throw new Error("Boat collides with another boat");
                 }
