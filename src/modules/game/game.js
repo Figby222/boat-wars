@@ -3,13 +3,13 @@ import Gameboard from "../gameboard/gameboard.js";
 import Computer from "../computer/computer.js";
 
 class Game {
-    constructor(display, player1Name, player2Name = "computer") {
+    constructor(display, player2Computer = true) {
         this.display = display;
-        this.player1 = new Player(new Gameboard(), player1Name);
-        if (player2Name === "computer") {
+        this.player1 = new Player(new Gameboard(), "player1");
+        if (player2Computer) {
             this.player2 = new Computer(new Gameboard());
         } else {
-            this.player2 = new Player(new Gameboard(), player2Name);
+            this.player2 = new Player(new Gameboard(), "player2");
         }
 
         this.currentTurn = this.player1;
