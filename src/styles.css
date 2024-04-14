@@ -79,7 +79,12 @@ header {
 }
 
 .win-banner {
+    display: grid;
     background-color: red;
     width: 400px;
     height: 200px;
+    color: blue;
+    font-weight: bold;
+    justify-content: center;
+    align-content: center;
 }
