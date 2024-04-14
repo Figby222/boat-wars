@@ -64,6 +64,24 @@ create Class computer
         if stack is not empty
             shoot a random coordinate
 
+    advancedMode shoot(enemyBoard)
+        pop from stack
+        if shotsArr includes stringified coordinates or 
+        coordinates are null
+            call this.shoot(enemyBoard)
+            return
+        if stack is not empty
+            destruct x and y from end of stack
+                if shot hits a boat
+                    maybe clear the stack
+                    push to stack [x-1, y]
+                    push to stack [x, y-1]
+                    push to stack [x+1, y]
+                    push to stack [x, y+1]
+        
+        if stack is empty
+            shoot a random coordinate
+
         
         
 
