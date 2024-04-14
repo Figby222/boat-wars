@@ -3,11 +3,11 @@ import Gameboard from "../gameboard/gameboard.js";
 import Computer from "../computer/computer.js";
 
 class Game {
-    constructor(display, player2Computer = true) {
+    constructor(display, player2Computer = true, advancedMode = false) {
         this.display = display;
         this.player1 = new Player(new Gameboard(), "player1");
         if (player2Computer) {
-            this.player2 = new Computer(new Gameboard());
+            this.player2 = new Computer(new Gameboard(), advancedMode);
         } else {
             this.player2 = new Player(new Gameboard(), "player2");
         }
