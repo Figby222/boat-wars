@@ -6,7 +6,11 @@ class Game {
     constructor(display, player1Name, player2Name = "computer") {
         this.display = display;
         this.player1 = new Player(new Gameboard(), player1Name);
-        this.player2 = new Player(new Gameboard(), player2Name);
+        if (player2Name === "computer") {
+            this.player2 = new Computer(new Gameboard());
+        } else {
+            this.player2 = new Player(new Gameboard(), player2Name);
+        }
 
         this.currentTurn = this.player1;
     }
