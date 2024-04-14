@@ -29,3 +29,18 @@ describe("#shoot", () => {
         expect (MockGameboard.receiveAttack.mock.calls[0][0]).toBeDefined();
     })
 })
+
+describe("#shoot advancedMode", () => {
+    test("It shoots adjascent squares", () => {
+        const computer = new Computer(null, true);
+        for (let i = 0; i < 6; i+=1) {
+            computer.shoot(MockGameboard);
+        }
+
+        const firstShot =
+            MockGameboard.receiveAttack.mock.calls[0][0];
+        const shouldBeShot = [firstShot[0]+1, firstShot[1]];
+
+        expect(MockGameboard.receiveAttack.mock.calls[0]).toContainEqual(shouldBeShot);
+    })
+})
