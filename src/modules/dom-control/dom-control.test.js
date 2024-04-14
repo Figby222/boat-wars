@@ -61,3 +61,18 @@ describe("#renderGameboard", () => {
     })
     
 })
+
+describe("#placeBoats", () => {
+    test ("it does not throw error", () => {
+        const game = new Game("player1", "player2")
+        expect(() => DOMCtrl.placeBoats(
+            game.player1.gameboard,
+            game.player2.gameboard
+        )).not.toThrow();
+    });
+    test ("it sets gameboards with boats", () => {
+        const game = new Game("player1", "player2");
+        DOMCtrl.placeBoats(game.player1.gameboard, game.player2.gameboard);
+        expect(game.player1.gameboard.checkFleetDestruction()).toBeFalsy();
+    })
+})
