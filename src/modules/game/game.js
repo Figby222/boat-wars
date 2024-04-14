@@ -21,7 +21,14 @@ class Game {
 
     playRound(coordinates) {
         if (this.player2.name === "computer") {
+            const enemyBoard = this.player2.gameboard;
+            const playerBoard = this.player1.gameboard;
 
+            this.player1.shoot(enemyBoard, coordinates);
+            this.player2.shoot(playerBoard);
+
+            this.display.renderPlayer1Gameboard(this, playerBoard, true);
+            this.display.renderPlayer2Gameboard(this, enemyBoard, false);
         } else {
             if (this.currentTurn === this.player1) {
                 const enemyBoard = this.player2.gameboard;
