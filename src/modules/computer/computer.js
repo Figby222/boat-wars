@@ -9,9 +9,9 @@ class Computer {
         if (this.advancedMode) {
             const stack = [];
             this.shoot = function(enemyBoard) {
+                stack.pop();
                 const currentCoordinates = stack[stack.length-1];
                 if (this.shotsArr.includes(JSON.stringify(currentCoordinates))) {
-                    stack.pop();
                     this.shoot(enemyBoard);
                 }
             };
