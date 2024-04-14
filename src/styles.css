@@ -5,6 +5,7 @@
     --miss-bg-color: black;
     --boat-hit-bg-color: red;
     --boat-visible-bg-color: white;
+    --header-text: blue;
 
     box-sizing: border-box
 }
@@ -19,6 +20,12 @@ body {
     width: 100vw;
     height: 100vh;
     box-sizing:border-box;
+}
+
+header {
+    color: var(--header-text);
+    font-size: 2rem;
+    text-align: center;
 }
 
 .grid-container {
