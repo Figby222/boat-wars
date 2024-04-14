@@ -46,7 +46,7 @@ DOMControl.prototype.renderPlayer1Gameboard = function(game, gameboard, setVisib
             
             if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
-                    this.game.playRound([x, y]);
+                    game.playRound([x, y]);
 
                     const gameOverStatus = this.game.checkGameOver();
 
@@ -105,7 +105,7 @@ DOMControl.prototype.renderPlayer2Gameboard = function(game, gameboard, setVisib
             
             if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
-                    this.game.playRound([x, y]);
+                    game.playRound([x, y]);
 
                     const gameOverStatus = this.game.checkGameOver();
 
