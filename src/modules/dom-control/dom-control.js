@@ -47,6 +47,18 @@ DOMControl.prototype.renderPlayer1Gameboard = function(setVisible = false) {
             
             if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
+                    this.game.playRound([x, y]);
+
+                    const gameOverStatus = this.game.checkGameOver();
+
+                    if (gameOverStatus) {
+                        this.gameOver(gameOverStatus);
+                        return;
+                    }
+
+                    this.renderPlayer1Gameboard(true);
+                    this.renderPlayer2Gameboard(false);
+
                 })
             }
             boardContainer.appendChild(cellContainer);
@@ -95,6 +107,17 @@ DOMControl.prototype.renderPlayer2Gameboard = function(setVisible) {
             
             if (cellContainer.classList.contains("notShot")) {
                 cellContainer.addEventListener("click", () => {
+                    this.game.playRound([x, y]);
+
+                    const gameOverStatus = this.game.checkGameOver();
+
+                    if (gameOverStatus) {
+                        this.gameOver(gameOverStatus);
+                        return;
+                    }
+
+                    this.renderPlayer1Gameboard(false);
+                    this.renderPlayer2Gameboard(true);
                 })
             }
             boardContainer.appendChild(cellContainer);
