@@ -7,7 +7,7 @@ class Computer {
         this.name = "computer";
 
         if (this.advancedMode) {
-            const coordinateStack = [];
+            let coordinateStack = [];
             this.shoot = function(enemyBoard) {
                 coordinateStack.pop();
                 const currentCoordinates = coordinateStack[coordinateStack.length-1];
