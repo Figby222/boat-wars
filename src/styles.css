@@ -19,11 +19,6 @@ body {
     width: 100vw;
     height: 100vh;
     box-sizing:border-box;
-    grid-template-rows: 
-        minmax(20px, 50px) 
-        repeat(2, minmax(min-content, 1fr)) 
-        auto
-        minmax(20px, 50px);
 }
 
 .grid-container {
