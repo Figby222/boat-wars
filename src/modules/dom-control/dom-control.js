@@ -6,7 +6,7 @@ DOMControl.prototype.switchTurn = function(player1, player2) {
     this.currentTurn = this.currentTurn === player1 ? player2 : player1;
 }
 
-DOMControl.prototype.renderPlayer1Gameboard = function(gameboard, setVisible = false) {
+DOMControl.prototype.renderPlayer1Gameboard = function(game, gameboard, setVisible = false) {
     const boardContainer = document.querySelector("#player1");
     boardContainer.textContent = "";
     
@@ -65,7 +65,7 @@ DOMControl.prototype.renderPlayer1Gameboard = function(gameboard, setVisible = f
     }
 }
 
-DOMControl.prototype.renderPlayer2Gameboard = function(gameboard, setVisible) {
+DOMControl.prototype.renderPlayer2Gameboard = function(game, gameboard, setVisible) {
     const boardContainer = document.querySelector("#player2");
     boardContainer.textContent = "";
     
