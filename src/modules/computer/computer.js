@@ -13,6 +13,7 @@ class Computer {
                 const currentCoordinates = coordinateStack[coordinateStack.length-1];
                 if (this.shotsArr.includes(JSON.stringify(currentCoordinates))) {
                     this.shoot(enemyBoard);
+                    return;
                 }
             };
         } else {
