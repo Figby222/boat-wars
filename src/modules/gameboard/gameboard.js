@@ -19,13 +19,16 @@ class Gameboard {
         const boat = new Boat(boatLength);
         const [x, y] = coordinates;
         const board = Object.assign([], this.board);
+        
+        const coordinatesArray = [];
+        
         let i;
         if (direction === "x") {
             for (i = 0; i < boat.length; i+=1) {
                 if (board[x+i][y]) {
                     throw new Error("Boat collides with another boat");
                 }
-                board[x+i][y] = boat;
+                coordinatesArray.push([x+i, y]);
             }
 
             if (x + (i-1) >= 10) { // change later
@@ -36,7 +39,7 @@ class Gameboard {
                 if (board[x][y+i]) {
                     throw new Error("Boat collides with another boat");
                 }
-                board[x][y+i] = boat;
+                coordinatesArray.push([x, y+i])
             }
 
             if (y + (i-1) >= 10) {
@@ -44,7 +47,13 @@ class Gameboard {
             }
         }
 
-        this.board = board;
+        for (i = 0; i < coordinatesArray.length; i+=1) {
+            const currentX = coordinatesArray[i][0];
+            const currentY = coordinatesArray[i][1];
+
+            this.board[currentX][currentY] = boat;
+        }
+        // this.board = board;
     }
 
     receiveAttack(coordinates) {
