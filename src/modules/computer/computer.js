@@ -15,6 +15,33 @@ class Computer {
                     this.shoot(enemyBoard);
                     return;
                 }
+
+                if (currentCoordinates) {
+                    try {
+                        const isHit = enemyBoard.receiveAttack(currentCoordinates);
+                        if (isHit) {
+                            coordinateStack = [];
+                            const [x, y] = currentCoordinates;
+
+                            coordinateStack.push(x-1, y);
+                            coordinateStack.push(x, y-1);
+                            coordinateStack.push(x+1, y);
+                            coordinateStack.push(x, y+1);
+                        }
+                    } catch (err) {
+                        this.shoot(enemyBoard);
+                    }
+
+                    return;
+                }
+
+                // shoot random
+                const x = Math.floor(Math.random() * 10);
+                const y = Math.floor(Math.random() * 10);
+                const coordinates = [x, y];
+
+                coordinateStack.push(coordinates);
+                this.shoot(enemyBoard);
             };
         } else {
             this.shoot = function(enemyBoard) {
