@@ -74,3 +74,9 @@ body {
 .notShot:hover {
     background-color: var(--notShot-hover-bg-color);
 }
+
+.win-banner {
+    background-color: white;
+    width: 400px;
+    height: 200px;
+}
