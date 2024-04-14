@@ -114,20 +114,4 @@ DOMControl.prototype.gameOver = function(winner) {
 
 }
 
-DOMControl.prototype.placeBoats = function(gameboard) {
-    for (let i = 1; i < 5; i+=1) {
-        const x = Math.floor(Math.random() * gameboard.board.length);
-        const y = Math.floor(Math.random() * gameboard.board.length);
-        const direction = Math.floor(Math.random() * 2) === 0 ? "x" : "y";
-        try {
-            gameboard.placeBoat(i, [x, y], direction);
-        } catch (err) {
-            i-=1;
-        }
-
-        
-        
-    }
-}
-
 export default DOMControl;

@@ -83,6 +83,20 @@ class Gameboard {
         }
         return true;
     }
+
+    placeBoats() {
+        this.board = Gameboard.setBoard();
+        for (let i = 1; i < 5; i+=1) {
+            const x = Math.floor(Math.random() * this.board.length);
+            const y = Math.floor(Math.random() * this.board.length);
+            const direction = Math.floor(Math.random() * 2) === 0 ? "x" : "y";
+            try {
+                this.placeBoat(i, [x, y], direction);
+            } catch (err) {
+                i-=1;
+            }
+        }
+    }
 }
 
 export default Gameboard;
