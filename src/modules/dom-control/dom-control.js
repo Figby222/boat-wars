@@ -119,7 +119,7 @@ DOMControl.prototype.placeBoats = function(player1Gameboard, player2Gameboard) {
     for (let i = 1; i < 5; i+=1) {
         const x = Math.floor(Math.random() * player1Gameboard.board.length);
         const y = Math.floor(Math.random() * player1Gameboard.board.length);
-        const direction = Math.random() * 2 === 0 ? "x" : "y";
+        const direction = Math.floor(Math.random() * 2) === 0 ? "x" : "y";
             try {
                 player1Gameboard.placeBoat(i, [x, y], direction);
             } catch (err) {
@@ -133,7 +133,7 @@ DOMControl.prototype.placeBoats = function(player1Gameboard, player2Gameboard) {
     for (let i = 1; i < 5;i+=1) {
         const x = Math.floor(Math.random() * player2Gameboard.board.length);
         const y = Math.floor(Math.random() * player2Gameboard.board.length);
-        const direction = Math.random() * 2 === 0 ? "x" : "y";
+        const direction = Math.floor(Math.random() * 2) === 0 ? "x" : "y";
             try {
                 player2Gameboard.placeBoat(i, [x, y], direction);
             } catch (err) {
