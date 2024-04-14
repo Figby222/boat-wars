@@ -93,3 +93,13 @@ header {
     border: 10px solid var(--board-border-color);
     border-radius: 30px;
 }
+
+button {
+    color: var(--header-text);
+    background-color: var(--board-border-color);
+    font-weight: bold;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
