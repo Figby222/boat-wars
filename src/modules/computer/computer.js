@@ -7,8 +7,13 @@ class Computer {
         this.name = "computer";
 
         if (this.advancedMode) {
-            this.shoot = function() {
-                
+            const stack = [];
+            this.shoot = function(enemyBoard) {
+                const currentCoordinates = stack[stack.length-1];
+                if (this.shotsArr.includes(JSON.stringify(currentCoordinates))) {
+                    stack.pop();
+                    this.shoot(enemyBoard);
+                }
             };
         } else {
             this.shoot = function(enemyBoard) {
