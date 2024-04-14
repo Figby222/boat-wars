@@ -7,10 +7,10 @@ class Computer {
         this.name = "computer";
 
         if (this.advancedMode) {
-            const stack = [];
+            const coordinateStack = [];
             this.shoot = function(enemyBoard) {
-                stack.pop();
-                const currentCoordinates = stack[stack.length-1];
+                coordinateStack.pop();
+                const currentCoordinates = coordinateStack[coordinateStack.length-1];
                 if (this.shotsArr.includes(JSON.stringify(currentCoordinates))) {
                     this.shoot(enemyBoard);
                 }
