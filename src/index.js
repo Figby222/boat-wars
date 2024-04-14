@@ -23,3 +23,10 @@ randomizeBoatsBtn.addEventListener("click", (e) => {
     display.renderPlayer1Gameboard(game, game.player1.gameboard, true);
     display.renderPlayer2Gameboard(game, game.player2.gameboard, true);
 })
+
+startGameBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    display.renderPlayer1Gameboard(game, game.player1.gameboard, true);
+    display.renderPlayer2Gameboard(game, game.player2.gameboard, false);
+})
