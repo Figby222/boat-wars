@@ -107,10 +107,19 @@ class Gameboard {
             const x = Math.floor(Math.random() * this.board.length);
             const y = Math.floor(Math.random() * this.board.length);
             const direction = Math.floor(Math.random() * 2) === 0 ? "x" : "y";
-            try {
-                this.placeBoat(i, [x, y], direction);
-            } catch (err) {
-                i-=1;
+            if (direction === "x") {
+                try {
+                    this.placeBoatHorizontal(i, [x, y]);
+                } catch (err) {
+                    i-=1;
+                }
+
+            } else if (direction === "y") {
+                try {
+                    this.placeBoatVertical(i, [x, y]);
+                } catch (err) {
+                    i-=1;
+                }
             }
         }
     }
