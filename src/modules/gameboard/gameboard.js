@@ -161,11 +161,11 @@ class Gameboard {
                 this.shootAdjacentCells(cell);
             }
             cell.value = "destroyed";
-            return true;
+            return cell;
         }
 
         this.board[x][y].value = false;
-        return false;
+        return cell;
     }
 
     checkFleetDestruction() {
