@@ -79,7 +79,7 @@ class Gameboard {
         if (x < this.minX || x > this.maxX || y < this.minY || y > this.maxY) {
             throw new Error("Coordinates are out of bounds")
         }
-        if(typeof this.board[x][y].value === "object") {
+        if(typeof this.board[x][y].value === "object" && !this.board[x][y].value == null) {
             this.board[x][y].value.hit();
             this.board[x][y].value = "destroyed";
             return true;
