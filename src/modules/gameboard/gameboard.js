@@ -15,7 +15,7 @@ class Gameboard {
         for (let i = 0; i <= 9; i+=1) {
             board.push([]);
             for (let i2 = 0; i2 <= 9; i2+=1) {
-                board[i].push({ value: null });
+                board[i].push({ value: null, hit: false, coordinates: [i, i2] });
             }
         }
 
@@ -136,6 +136,7 @@ class Gameboard {
         }
 
         const cell = this.board[x][y];
+        cell.hit = true;
 
         if(cell.value instanceof Boat) {
             cell.value.hit();
