@@ -43,4 +43,20 @@ describe("#shoot advancedMode", () => {
 
         expect(MockGameboard.receiveAttack.mock.calls[0]).toContainEqual(shouldBeShot);
     })
+
+    test("It shoots real gameboard", () => {
+        const computer = new Computer(null, true);
+        const board = new Gameboard();
+        expect(() => computer.shoot(board)).not.toThrow(Error);
+    })
+
+    test("It shoots gameboard 64 times", () => {
+        const computer = new Computer(null, true);
+        const board = new Gameboard();
+        expect(() => {
+            for (let i = 0; i < 64; i+=1) {
+                computer.shoot(board);
+            }
+        }).not.toThrow(Error);
+    })
 })
