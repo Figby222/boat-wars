@@ -71,6 +71,15 @@ class Gameboard {
 
             this.board[currentX][currentY].value = boat;
         }
+            })
+
+        }
+    }
+
+    getCell(coordinates) {
+        const [x, y] = coordinates;
+
+        return this.board[x][y];
     }
 
     getAdjacentCellsCoordinates(coordinates) {
