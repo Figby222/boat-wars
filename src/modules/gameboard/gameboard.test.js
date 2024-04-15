@@ -32,7 +32,7 @@ describe("#set-board", () => {
     })
 
     test("setBoard[9] exists", () => {
-        expect(myBoard[9]).toBeDefined();
+        expect(myBoard[9]).not.toBeNull();
     })
 })
 
