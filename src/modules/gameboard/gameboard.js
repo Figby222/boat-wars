@@ -7,7 +7,7 @@ class Gameboard {
         this.minX = 0;
         this.maxX = 9;
         this.minY = 0;
-        this.maxX = 9;
+        this.maxY = 9;
     }
 
     static setBoard() {
