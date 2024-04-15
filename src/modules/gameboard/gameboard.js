@@ -82,7 +82,7 @@ class Gameboard {
         return this.board[x][y];
     }
 
-    getAdjacentCellsCoordinates(coordinates) {
+    getAdjacentCellCoordinates(coordinates) {
         const [x, y] = coordinates;
         return [
             [x - 1][y],
