@@ -32,7 +32,7 @@ class Gameboard {
         let i;
         if (direction === "x") {
             for (i = 0; i < boat.length; i+=1) {
-                if (board[x+i][y]) {
+                if (board[x+i][y].value != null) {
                     throw new Error("Boat collides with another boat");
                 }
                 coordinatesArray.push([x+i, y]);
@@ -43,7 +43,7 @@ class Gameboard {
             }
         } else {
             for (i = 0; i < boat.length; i+=1) {
-                if (board[x][y+i]) {
+                if (board[x][y+i].value != null) {
                     throw new Error("Boat collides with another boat");
                 }
                 coordinatesArray.push([x, y+i])
