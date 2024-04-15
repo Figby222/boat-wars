@@ -91,7 +91,7 @@ class Gameboard {
             const [currX, currY] = coordinateList[i];
             if (this.board[currX][currY] != null) {
                 this.board[currX][currY].value = "taken";
-                this.board[currX][currY].value.coordinateList.push([currX, currY]);
+                this.board[currX][currY].value.coordinatesArr.push([currX, currY]);
             }
         }
 
