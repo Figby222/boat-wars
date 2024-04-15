@@ -73,17 +73,17 @@ class Gameboard {
         }
     }
 
-    getAdjacentCells(coordinates) {
+    getAdjacentCellsCoordinates(coordinates) {
         const [x, y] = coordinates;
         return [
-            this.board[x - 1][y],
-            this.board[x + 1], [y],
-            this.board[x][y - 1],
-            this.board[x][y + 1],
-            this.board[x - 1][y - 1],
-            this.board[x + 1][y- 1],
-            this.board[x - 1][y + 1],
-            this.board[x + 1][y + 1],
+            [x - 1][y],
+            [x + 1], [y],
+            [x][y - 1],
+            [x][y + 1],
+            [x - 1][y - 1],
+            [x + 1][y- 1],
+            [x - 1][y + 1],
+            [x + 1][y + 1],
         ]
     }
 
