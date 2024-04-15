@@ -44,6 +44,12 @@ class Gameboard {
             const currentY = coordinatesArray[i][1];
 
             this.board[currentX][currentY].value = boat;
+        }
+        // this.board = board;
+        for (let i = 0; i < coordinatesArray.length; i+=1) {
+            const currentX = coordinatesArray[i][0];
+            const currentY = coordinatesArray[i][1];
+            
             const adjacentCells = this.getAdjacentCellCoordinates([currentX, currentY]);
             adjacentCells.forEach((coordinates) => {
                 console.log(coordinates);
@@ -77,6 +83,13 @@ class Gameboard {
             const currentY = coordinatesArray[i][1];
             
             this.board[currentX][currentY].value = boat;
+            
+        }
+
+        for (let i = 0; i < coordinatesArray.length; i+=1) {
+            const currentX = coordinatesArray[i][0];
+            const currentY = coordinatesArray[i][1];
+
             const adjacentCells = this.getAdjacentCellCoordinates([currentX, currentY]);
             adjacentCells.forEach((coordinates) => {
                 console.log(coordinates);
