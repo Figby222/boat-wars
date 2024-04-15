@@ -134,9 +134,15 @@ class Gameboard {
         if (this.checkIfOutOfBounds(coordinates)) {
             throw new Error("Coordinates are out of bounds")
         }
-        if(this.board[x][y].value instanceof Boat) {
-            this.board[x][y].value.hit();
-            this.board[x][y].value = "destroyed";
+
+        const cell = this.board[x][y];
+
+        if(cell.value instanceof Boat) {
+            cell.value.hit();
+            // if (this.board[x][y].value.isSunk()) {
+            //     this.shootAdjacentCells([x, y]);
+            // }
+            cell.value = "destroyed";
             return true;
         }
 
