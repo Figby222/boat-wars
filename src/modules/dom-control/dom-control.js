@@ -10,8 +10,8 @@ DOMControl.prototype.renderPlayer1Gameboard = function(game, gameboard, setVisib
     const boardContainer = document.querySelector("#player1");
     boardContainer.textContent = "";
     
-    for (let x = 0; x < gameboard.board.length; x+=1) {
-        for (let y = 0; y < gameboard.board.length; y+=1) {
+    for (let x = gameboard.minX; x <= gameboard.maxX; x+=1) {
+        for (let y = gameboard.minY; y <= gameboard.maxY; y+=1) {
             const cellContainer = document.createElement("div");
             cellContainer.classList.add("cell");
 
@@ -58,8 +58,8 @@ DOMControl.prototype.renderPlayer2Gameboard = function(game, gameboard, setVisib
     const boardContainer = document.querySelector("#player2");
     boardContainer.textContent = "";
     
-    for (let x = 0; x < gameboard.board.length; x+=1) {
-        for (let y = 0; y < gameboard.board.length; y+=1) {
+    for (let x = gameboard.minX; x <= gameboard.maxX; x+=1) {
+        for (let y = gameboard.minY; y <= gameboard.maxY; y+=1) {
             const cellContainer = document.createElement("div");
             cellContainer.classList.add("cell");
 
