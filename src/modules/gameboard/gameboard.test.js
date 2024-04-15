@@ -17,6 +17,10 @@ describe("Gameboard constructor", () => {
 })
 
 describe("#set-board", () => {
+    test ("setBoard returns an array", () => {
+        const board = Gameboard.setBoard();
+        expect(board[0]).not.toBeNull();
+    })
     test("setBoard returns a 2d array", () => {
         const board = Gameboard.setBoard();
         expect(board[0][0]).not.toBeNull();
