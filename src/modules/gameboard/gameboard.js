@@ -96,16 +96,14 @@ class Gameboard {
         ]
     }
 
-        const coordinateList = Object.values(takenCoordinates);
-        for (let i = 0; i < coordinateList.length; i+=1) {
-            const [currX, currY] = coordinateList[i];
-            if (this.board[currX][currY] != null) {
-                this.board[currX][currY].value = "taken";
-                this.board[x][y].value.coordinatesArr.push([currX, currY]);
+    shootAdjacentCells(coordinates) {
+        const coordinatesArr = this.getAdjacentCellsCoordinates(coordinates);
+
+        coordinatesArr.forEach((currentCoordinates) => {
+            if (this.getCell(currentCoordinates)) {
+                this.receiveAttack(currentCoordinates);
             }
-        }
-
-
+        })
     }
 
     checkIfOutOfBounds(coordinates) {
