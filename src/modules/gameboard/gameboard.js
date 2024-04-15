@@ -58,7 +58,7 @@ class Gameboard {
             const currentX = coordinatesArray[i][0];
             const currentY = coordinatesArray[i][1];
 
-            this.board[currentX][currentY] = boat;
+            this.board[currentX][currentY].value = boat;
         }
         // this.board = board;
     }
@@ -66,13 +66,13 @@ class Gameboard {
     receiveAttack(coordinates) {
         const [x, y] = coordinates;
 
-        if(typeof this.board[x][y] === "object") {
-            this.board[x][y].hit();
-            this.board[x][y] = "destroyed";
+        if(typeof this.board[x][y].value === "object") {
+            this.board[x][y].value.hit();
+            this.board[x][y].value = "destroyed";
             return true;
         }
 
-        this.board[x][y] = false;
+        this.board[x][y].value = false;
         return false;
     }
 
@@ -80,7 +80,7 @@ class Gameboard {
         for (let row = 0; row < this.board.length; row+=1) {
             for(let column = 0; column < this.board[row].length; column+=1) {
                 const currentCell = this.board[row][column];
-                if (currentCell && currentCell !== "destroyed" && !(currentCell.isSunk())) {
+                if (currentCell.value && currentCell.value !== "destroyed" && !(currentCell.value.isSunk())) {
                     return false;
                 }
             }
