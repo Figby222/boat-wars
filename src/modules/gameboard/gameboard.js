@@ -118,7 +118,7 @@ class Gameboard {
         for (let row = this.minX; row <= this.maxX; row+=1) {
             for(let column = this.minY; column < this.maxY; column+=1) {
                 const currentCell = this.board[row][column];
-                if (currentCell.value && currentCell.value !== "destroyed" && !(currentCell.value.isSunk())) {
+                if (currentCell.value instanceof Boat && !(currentCell.value.isSunk())) {
                     return false;
                 }
             }
