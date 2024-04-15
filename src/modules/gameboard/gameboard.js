@@ -12,9 +12,9 @@ class Gameboard {
 
     static setBoard() {
         const board = [];
-        for (let i = this.minX; i <= this.maxX; i+=1) {
+        for (let i = 0; i <= 9; i+=1) {
             board.push([]);
-            for (let i2 = this.minY; i2 <= this.maxY; i2+=1) {
+            for (let i2 = 0; i2 <= 9; i2+=1) {
                 board[i].push({ value: null });
             }
         }
