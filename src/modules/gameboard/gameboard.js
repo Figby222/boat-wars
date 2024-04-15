@@ -73,6 +73,31 @@ class Gameboard {
         }
     }
 
+    setAdjacentCellsAsTaken(coordinates) {
+        const [x, y] = coordinates;
+        const takenCoordinates = {
+            left: [x - 1, y],
+            right: [x + 1, y],
+            top: [x, y - 1],
+            bottom: [x, y + 1],
+            topLeft: [x - 1, y - 1],
+            topRight: [x + 1, y- 1],
+            bottomLeft: [x - 1, y + 1],
+            bottomRight: [x + 1, y + 1],
+        }
+
+        const coordinateList = Object.values(takenCoordinates);
+        for (let i = 0; i < coordinateList.length; i+=1) {
+            const [currX, currY] = coordinateList[i];
+            if (this.board[currX][currY] != null) {
+                this.board[currX][currY].value = "taken";
+                this.board[currX][currY].value.coordinateList.push([currX, currY]);
+            }
+        }
+
+
+    }
+
     receiveAttack(coordinates) {
         const [x, y] = coordinates;
 
