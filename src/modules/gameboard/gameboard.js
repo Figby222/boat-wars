@@ -4,13 +4,17 @@ import Boat from "../boat/boat.js";
 class Gameboard {
     constructor() {
         this.board = Gameboard.setBoard();
+        this.minX = 0;
+        this.maxX = 9;
+        this.minY = 0;
+        this.maxX = 9;
     }
 
     static setBoard() {
         const board = [];
         for (let i = 0; i < 10; i+=1) {
             board.push([]);
-            for (let i = 0; i < 10; i+=1) {
+            for (let i2 = 0; i2 < 10; i2+=1) {
                 board[i].push({ value: null });
             }
         }
