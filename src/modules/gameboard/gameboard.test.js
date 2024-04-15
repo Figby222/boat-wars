@@ -19,20 +19,25 @@ describe("Gameboard constructor", () => {
 describe("#set-board", () => {
     test ("setBoard returns an array", () => {
         const board = Gameboard.setBoard();
-        expect(board[0]).not.toBeNull();
+        expect(board[0]).toBeDefined();
     })
     test("setBoard returns a 2d array", () => {
         const board = Gameboard.setBoard();
-        expect(board[0][0]).not.toBeNull();
+        expect(board[0][0]).toBeDefined();
+    })
+
+    test ("setBoard returns a 2d array of cells", () => {
+        const board = Gameboard.setBoard();
+        expect (board[0][0].value).toBeDefined();
     })
 
     test("setBoard[9] exists", () => {
-        expect(myBoard[9]).not.toBeNull();
+        expect(myBoard[9]).toBeDefined();
     })
 })
 
 describe("#place-boat", () => {
-    const MockBoat = jest.fn((length) => { 
+        expect(myBoard[9]).toBeDefined();
         return { length } 
     });
     const boat = 4;
