@@ -81,7 +81,7 @@ class Gameboard {
             adjacentCells.forEach((coordinates) => {
                 console.log(coordinates);
                 if (!this.checkIfOutOfBounds(coordinates) && !(this.getCell(coordinates).value instanceof Boat)) {
-                    this.getCell(coordinates).value = "unavaileble";
+                    this.getCell(coordinates).value = "unavailable";
                 }
             })
 
