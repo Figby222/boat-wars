@@ -18,9 +18,14 @@ class Computer {
 
                 if (currentCoordinates) {
                     this.shotsArr.push(JSON.stringify(currentCoordinates));
-                    try {
-                        const isHit = enemyBoard.receiveAttack(currentCoordinates);
-                        if (isHit) {
+                    // try {
+                        const cell = enemyBoard.getCell(currentCoordinates);
+                        if (cell == null || cell.hit) {
+                            this.shoot(enemyBoard);
+                            return;
+                        }
+                        enemyBoard.receiveAttack(currentCoordinates);
+                        if (cell.hasBoat) {
                             const [x, y] = currentCoordinates;
 
                             coordinateStack.push([x-1, y]);
@@ -28,9 +33,9 @@ class Computer {
                             coordinateStack.push([x+1, y]);
                             coordinateStack.push([x, y+1]);
                         }
-                    } catch (err) {
-                        this.shoot(enemyBoard);
-                    }
+                    // } catch (err) {
+                    //     this.shoot(enemyBoard);
+                    // }
 
                     return;
                 }
