@@ -14,33 +14,13 @@ DOMControl.prototype.renderPlayer1Gameboard = function(game, gameboard, setVisib
         for (let y = gameboard.minY; y <= gameboard.maxY; y+=1) {
             const cellContainer = document.createElement("div");
             cellContainer.classList.add("cell");
+            const cell = gameboard.board[x][y];
 
             
             if (setVisible) {
-                if (gameboard.board[x][y].value === false) {
-                    cellContainer.classList.add("miss");
-                } else if (gameboard.board[x][y].value != null) {
-                    cellContainer.classList.add("boat");
-                    cellContainer.classList.add("visible");
-                    if (gameboard.board[x][y].value === "destroyed") {
-                        cellContainer.classList.add("hit");
-                    }
-
-                }
-            } 
-            
-            // not setVisible
-            else if (gameboard.board[x][y].value !== false && gameboard.board[x][y].value !== "destroyed") {
-                cellContainer.classList.add("notShot"); // hasn't been hit yet
-            } else if (gameboard.board[x][y].value === false) {
-                cellContainer.classList.add("miss");
-            } else {
-                cellContainer.classList.add("boat");
-                if (gameboard.board[x][y].value === "destroyed") {
-                    cellContainer.classList.add("hit");
-                } else if (setVisible) {
-                    cellContainer.classList.add("visible");
-                }
+                this.addVisibleAttributes(cell, cellContainer)
+            } else { // not setVisible
+                this.addAttributes(cell, cellContainer);
             }
 
             
@@ -62,33 +42,13 @@ DOMControl.prototype.renderPlayer2Gameboard = function(game, gameboard, setVisib
         for (let y = gameboard.minY; y <= gameboard.maxY; y+=1) {
             const cellContainer = document.createElement("div");
             cellContainer.classList.add("cell");
+            const cell = gameboard.board[x][y];
 
             
             if (setVisible) {
-                if (gameboard.board[x][y].value === false) {
-                    cellContainer.classList.add("miss");
-                } else if (gameboard.board[x][y].value != null) {
-                    cellContainer.classList.add("boat");
-                    cellContainer.classList.add("visible");
-                    if (gameboard.board[x][y].value === "destroyed") {
-                        cellContainer.classList.add("hit");
-                    }
-
-                }
-            } 
-            
-            // not setVisible
-            else if (gameboard.board[x][y].value !== false && gameboard.board[x][y].value !== "destroyed") {
-                cellContainer.classList.add("notShot"); // hasn't been hit yet
-            } else if (gameboard.board[x][y].value === false) {
-                cellContainer.classList.add("miss");
-            } else {
-                cellContainer.classList.add("boat");
-                if (gameboard.board[x][y].value === "destroyed") {
-                    cellContainer.classList.add("hit");
-                } else if (setVisible) {
-                    cellContainer.classList.add("visible");
-                }
+                this.addVisibleAttributes(cell, cellContainer)
+            } else { // not setVisible
+                this.addAttributes(cell, cellContainer);
             }
 
             
@@ -99,6 +59,51 @@ DOMControl.prototype.renderPlayer2Gameboard = function(game, gameboard, setVisib
             }
             boardContainer.appendChild(cellContainer);
         }
+    }
+}
+
+DOMControl.prototype.addVisibleAttributes = function(cell, container) {
+    const {value} = cell;
+    
+    
+    if (value === false) { // or if value is unavailable
+        container.classList.add("miss");
+        return;
+    }
+    
+    if (value === "destroyed") {
+        container.classList.add("boat");
+        container.classList.add("hit");
+        return;
+    }
+
+    if (typeof value === "object" && value != null) {
+        container.classList.add("visible");
+        container.classList.add("boat");
+        return;
+    }
+    
+    if (!cell.hit) {
+        container.classList.add("notShot");
+    }
+    
+}
+
+DOMControl.prototype.addAttributes = function(cell, container) {
+    const {value} = cell;
+    if (!cell.hit) {
+        container.classList.add("notShot");
+        return;
+    }
+
+    if (value === false) { // or if value is unavailable
+        container.classList.add("miss");
+        return;
+    }
+
+    if (value === "destroyed") {
+        container.classList.add("boat");
+        container.classList.add("hit");
     }
 }
 
