@@ -17,12 +17,12 @@ DOMControl.prototype.renderPlayer1Gameboard = function(game, gameboard, setVisib
 
             
             if (setVisible) {
-                if (gameboard.board[x][y] === false) {
+                if (gameboard.board[x][y].value === false) {
                     cellContainer.classList.add("miss");
-                } else if (gameboard.board[x][y] != null) {
+                } else if (gameboard.board[x][y].value != null) {
                     cellContainer.classList.add("boat");
                     cellContainer.classList.add("visible");
-                    if (gameboard.board[x][y] === "destroyed") {
+                    if (gameboard.board[x][y].value === "destroyed") {
                         cellContainer.classList.add("hit");
                     }
 
@@ -30,13 +30,13 @@ DOMControl.prototype.renderPlayer1Gameboard = function(game, gameboard, setVisib
             } 
             
             // not setVisible
-            else if (gameboard.board[x][y] !== false && gameboard.board[x][y] !== "destroyed") {
+            else if (gameboard.board[x][y].value !== false && gameboard.board[x][y].value !== "destroyed") {
                 cellContainer.classList.add("notShot"); // hasn't been hit yet
-            } else if (gameboard.board[x][y] === false) {
+            } else if (gameboard.board[x][y].value === false) {
                 cellContainer.classList.add("miss");
             } else {
                 cellContainer.classList.add("boat");
-                if (gameboard.board[x][y] === "destroyed") {
+                if (gameboard.board[x][y].value === "destroyed") {
                     cellContainer.classList.add("hit");
                 } else if (setVisible) {
                     cellContainer.classList.add("visible");
@@ -65,12 +65,12 @@ DOMControl.prototype.renderPlayer2Gameboard = function(game, gameboard, setVisib
 
             
             if (setVisible) {
-                if (gameboard.board[x][y] === false) {
+                if (gameboard.board[x][y].value === false) {
                     cellContainer.classList.add("miss");
-                } else if (gameboard.board[x][y] != null) {
+                } else if (gameboard.board[x][y].value != null) {
                     cellContainer.classList.add("boat");
                     cellContainer.classList.add("visible");
-                    if (gameboard.board[x][y] === "destroyed") {
+                    if (gameboard.board[x][y].value === "destroyed") {
                         cellContainer.classList.add("hit");
                     }
 
@@ -78,13 +78,13 @@ DOMControl.prototype.renderPlayer2Gameboard = function(game, gameboard, setVisib
             } 
             
             // not setVisible
-            else if (gameboard.board[x][y] !== false && gameboard.board[x][y] !== "destroyed") {
+            else if (gameboard.board[x][y].value !== false && gameboard.board[x][y].value !== "destroyed") {
                 cellContainer.classList.add("notShot"); // hasn't been hit yet
-            } else if (gameboard.board[x][y] === false) {
+            } else if (gameboard.board[x][y].value === false) {
                 cellContainer.classList.add("miss");
             } else {
                 cellContainer.classList.add("boat");
-                if (gameboard.board[x][y] === "destroyed") {
+                if (gameboard.board[x][y].value === "destroyed") {
                     cellContainer.classList.add("hit");
                 } else if (setVisible) {
                     cellContainer.classList.add("visible");
