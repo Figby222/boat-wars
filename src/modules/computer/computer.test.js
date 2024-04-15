@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/extensions */
 import Computer from "./computer.js";
+import Gameboard from "../gameboard/gameboard.js";
 
 let MockGameboard = {receiveAttack: jest.fn(() => true)};
 beforeEach(() => {
