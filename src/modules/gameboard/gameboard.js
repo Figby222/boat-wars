@@ -29,7 +29,7 @@ class Gameboard {
         
         const coordinatesArray = [];
         for (let i = 0; i < boat.length; i+=1) {
-            if (!board[x+i][y]) { // change later
+            if (x+i > this.maxX || y > this.maxY) { // change later
                 throw new Error("Boat out of bounds");
             }
 
@@ -55,7 +55,7 @@ class Gameboard {
 
         const coordinatesArray = [];
         for (let i = 0; i < boat.length; i+=1) {
-            if (!board[x][y+i]) {
+            if (x > this.maxX || y+i > this.maxY) {
                 throw new Error("Boat out of bounds");
             }
 
