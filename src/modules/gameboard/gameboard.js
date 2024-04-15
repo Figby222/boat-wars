@@ -15,7 +15,7 @@ class Gameboard {
         for (let i = 0; i <= 9; i+=1) {
             board.push([]);
             for (let i2 = 0; i2 <= 9; i2+=1) {
-                board[i].push({ value: null, hit: false, coordinates: [i, i2] });
+                board[i].push({ value: null, hit: false, hasBoat: false, coordinates: [i, i2] });
             }
         }
 
@@ -44,6 +44,7 @@ class Gameboard {
             const currentY = coordinatesArray[i][1];
             
             this.board[currentX][currentY].value = boat;
+            this.board[currentX][currentY].hasBoat = true;
         }
         // this.board = board;
         for (let i = 0; i < coordinatesArray.length; i+=1) {
@@ -84,6 +85,7 @@ class Gameboard {
             const currentY = coordinatesArray[i][1];
             
             this.board[currentX][currentY].value = boat;
+            this.board[currentX][currentY].hasBoat = true;
             
         }
 
