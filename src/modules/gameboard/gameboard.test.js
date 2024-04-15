@@ -37,56 +37,56 @@ describe("#set-board", () => {
 })
 
 describe("#place-boat", () => {
-        expect(myBoard[9]).toBeDefined();
+    const MockBoat = jest.fn((length) => { 
         return { length } 
     });
     const boat = 4;
 
     test("fake boat is placed in board", () => {
-        myBoard.placeBoat(boat, [0, 1]);
-        expect(typeof myBoard.board[0][1]).toEqual("object");
+        myBoard.placeBoatHorizontal(boat, [0, 1]);
+        expect(typeof myBoard.board[0][1].value).toEqual("object");
     })
 
     test("boat placed out of bounds throws error", () => {
-        expect(() => myBoard.placeBoat(boat, [10][10])).toThrow(Error);
+        expect(() => myBoard.placeBoatHorizontal(boat, [10][10])).toThrow(Error);
     })
 
     test("It places a boat with the length specified", () => {
-        myBoard.placeBoat(boat, [0, 0], "x");
+        myBoard.placeBoatHorizontal(boat, [0, 0]);
         expect (myBoard.board[3][0]).toBeDefined();
     })
 
     test("It places a boat with the length specified vertically", () => {
-        myBoard.placeBoat(boat, [0, 0], "y");
+        myBoard.placeBoatVertical(boat, [0, 0]);
         expect (myBoard.board[0][3]).toBeDefined();
     })
 
     test("It doesn't place boats out of bounds", () => {
-        expect(() => myBoard.placeBoat(boat, [9, 9], "y"))
+        expect(() => myBoard.placeBoatHorizontal(boat, [9, 9]))
             .toThrow(new Error("Boat out of bounds"));
     })
 
     test("It throws error if boats collide on X axis", () => {
-        myBoard.placeBoat(boat, [6, 4], "y");
-        expect(() => myBoard.placeBoat(4, [4, 7], "x"))
+        myBoard.placeBoatVertical(boat, [6, 4], "y");
+        expect(() => myBoard.placeBoatHorizontal(4, [4, 7], "x"))
             .toThrow(new Error("Boat collides with another boat"))
     })
 
     test("It throws error if boats collide on Y axis", () => {
-        myBoard.placeBoat(boat, [4, 6], "x");
-        expect(() => myBoard.placeBoat(4, [7, 4], "y"))
+        myBoard.placeBoatHorizontal(boat, [4, 6], "x");
+        expect(() => myBoard.placeBoatVertical(4, [7, 4], "y"))
             .toThrow(new Error("Boat collides with another boat"));
     })
 
     test("It does not throw error if boats don't collide on X axis", () => {
-        myBoard.placeBoat(boat, [6, 4], "y");
-        expect (() => myBoard.placeBoat(4, [0, 0], "x"))
+        myBoard.placeBoatVertical(boat, [6, 4], "y");
+        expect (() => myBoard.placeBoatHorizontal(4, [0, 0], "x"))
             .not.toThrow(new Error("Boat collides with another boat"));
     })
 
     test("It does not throw error if boats don't collide on Y axis", () => {
-        myBoard.placeBoat(boat, [4, 6], "x");
-        expect(() => myBoard.placeBoat(4, [0, 0], "y"))
+        myBoard.placeBoatHorizontal(boat, [4, 6], "x");
+        expect(() => myBoard.placeBoatVertical(4, [0, 0], "y"))
             .not.toThrow(new Error("Boat collides with another boat"));
     })
 
@@ -133,7 +133,7 @@ describe("#checkFleet", () => {
     })
 
     test("It works when the board is not empty", () => {
-        myBoard.placeBoat(4, [4, 7]);
+        myBoard.placeBoatHorizontal(4, [4, 7]);
         expect(myBoard.checkFleetDestruction()).toBe(false);
     })
 

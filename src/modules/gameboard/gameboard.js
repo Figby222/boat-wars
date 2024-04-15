@@ -22,47 +22,55 @@ class Gameboard {
         return board;
     }
 
-    placeBoat(boatLength, coordinates, direction = "x") {
+    placeBoatHorizontal(boatLength, coordinates) {
         const boat = new Boat(boatLength);
         const [x, y] = coordinates;
         const board = Object.assign([], this.board);
         
         const coordinatesArray = [];
-        
-        let i;
-        if (direction === "x") {
-            for (i = 0; i < boat.length; i+=1) {
-                if (!board[x+i][y]) { // change later
-                    throw new Error("Boat out of bounds");
-                }
-
-                if (board[x+i][y].value != null) {
-                    throw new Error("Boat collides with another boat");
-                }
-                coordinatesArray.push([x+i, y]);
+        for (let i = 0; i < boat.length; i+=1) {
+            if (!board[x+i][y]) { // change later
+                throw new Error("Boat out of bounds");
             }
 
-        } else {
-            for (i = 0; i < boat.length; i+=1) {
-                if (!board[x][y+i]) {
-                    throw new Error("Boat out of bounds");
-                }
-
-                if (board[x][y+i].value != null) {
-                    throw new Error("Boat collides with another boat");
-                }
-                coordinatesArray.push([x, y+i])
+            if (board[x+i][y].value != null) {
+                throw new Error("Boat collides with another boat");
             }
-
+            coordinatesArray.push([x+i, y]);
         }
 
-        for (i = 0; i < coordinatesArray.length; i+=1) {
+        for (let i = 0; i < coordinatesArray.length; i+=1) {
             const currentX = coordinatesArray[i][0];
             const currentY = coordinatesArray[i][1];
 
             this.board[currentX][currentY].value = boat;
         }
         // this.board = board;
+    }
+
+    placeBoatVertical(boatLength, coordinates) {
+        const boat = new Boat(boatLength);
+        const [x, y] = coordinates;
+        const board = Object.assign([], this.board);
+
+        const coordinatesArray = [];
+        for (let i = 0; i < boat.length; i+=1) {
+            if (!board[x][y+i]) {
+                throw new Error("Boat out of bounds");
+            }
+
+            if (board[x][y+i].value != null) {
+                throw new Error("Boat collides with another boat");
+            }
+            coordinatesArray.push([x, y+i])
+        }
+
+        for (let i = 0; i < coordinatesArray.length; i+=1) {
+            const currentX = coordinatesArray[i][0];
+            const currentY = coordinatesArray[i][1];
+
+            this.board[currentX][currentY].value = boat;
+        }
     }
 
     receiveAttack(coordinates) {
