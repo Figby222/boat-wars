@@ -10,6 +10,9 @@ class Gameboard {
         const board = [];
         for (let i = 0; i < 10; i+=1) {
             board.push([]);
+            for (let i = 0; i < 10; i+=1) {
+                board[i].push({ value: null });
+            }
         }
 
         return board;
