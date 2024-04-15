@@ -123,11 +123,13 @@ class Gameboard {
         ]
     }
 
-    shootAdjacentCells(coordinates) {
-        const coordinatesArr = this.getAdjacentCellsCoordinates(coordinates);
+    shootAdjacentCells(cell) {
+        const {adjacentCoordinatesArr} = cell.value;
+        // const adjacentCoordinates = this.getAdjacentCellCoordinates(coordinates);
 
-        coordinatesArr.forEach((currentCoordinates) => {
-            if (this.getCell(currentCoordinates)) {
+        adjacentCoordinatesArr.forEach((currentCoordinates) => {
+            const currCell = this.getCell(currentCoordinates);
+            if (currCell) {
                 this.receiveAttack(currentCoordinates);
             }
         })
