@@ -157,9 +157,9 @@ class Gameboard {
 
         if(cell.value instanceof Boat) {
             cell.value.hit();
-            // if (this.board[x][y].value.isSunk()) {
-            //     this.shootAdjacentCells([x, y]);
-            // }
+            if (cell.value.isSunk()) {
+                this.shootAdjacentCells(cell);
+            }
             cell.value = "destroyed";
             return true;
         }
