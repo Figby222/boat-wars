@@ -73,18 +73,19 @@ class Gameboard {
         }
     }
 
-    setAdjacentCellsAsTaken(coordinates) {
+    getAdjacentCells(coordinates) {
         const [x, y] = coordinates;
-        const takenCoordinates = {
-            left: [x - 1, y],
-            right: [x + 1, y],
-            top: [x, y - 1],
-            bottom: [x, y + 1],
-            topLeft: [x - 1, y - 1],
-            topRight: [x + 1, y- 1],
-            bottomLeft: [x - 1, y + 1],
-            bottomRight: [x + 1, y + 1],
-        }
+        return [
+            this.board[x - 1][y],
+            this.board[x + 1], [y],
+            this.board[x][y - 1],
+            this.board[x][y + 1],
+            this.board[x - 1][y - 1],
+            this.board[x + 1][y- 1],
+            this.board[x - 1][y + 1],
+            this.board[x + 1][y + 1],
+        ]
+    }
 
         const coordinateList = Object.values(takenCoordinates);
         for (let i = 0; i < coordinateList.length; i+=1) {
