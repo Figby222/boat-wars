@@ -32,26 +32,28 @@ class Gameboard {
         let i;
         if (direction === "x") {
             for (i = 0; i < boat.length; i+=1) {
+                if (!board[x+i][y]) { // change later
+                    throw new Error("Boat out of bounds");
+                }
+
                 if (board[x+i][y].value != null) {
                     throw new Error("Boat collides with another boat");
                 }
                 coordinatesArray.push([x+i, y]);
             }
 
-            if (x + (i-1) > this.maxX) { // change later
-                throw new Error("Boat out of bounds");
-            }
         } else {
             for (i = 0; i < boat.length; i+=1) {
+                if (!board[x][y+i]) {
+                    throw new Error("Boat out of bounds");
+                }
+
                 if (board[x][y+i].value != null) {
                     throw new Error("Boat collides with another boat");
                 }
                 coordinatesArray.push([x, y+i])
             }
 
-            if (y + (i-1) > this.maxY) {
-                throw new Error("Boat out of bounds");
-            }
         }
 
         for (i = 0; i < coordinatesArray.length; i+=1) {
