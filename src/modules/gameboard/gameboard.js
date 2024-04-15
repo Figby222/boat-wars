@@ -12,9 +12,9 @@ class Gameboard {
 
     static setBoard() {
         const board = [];
-        for (let i = 0; i < 10; i+=1) {
+        for (let i = this.minX; i <= this.maxX; i+=1) {
             board.push([]);
-            for (let i2 = 0; i2 < 10; i2+=1) {
+            for (let i2 = this.minY; i2 <= this.maxY; i2+=1) {
                 board[i].push({ value: null });
             }
         }
@@ -38,7 +38,7 @@ class Gameboard {
                 coordinatesArray.push([x+i, y]);
             }
 
-            if (x + (i-1) >= 10) { // change later
+            if (x + (i-1) > this.maxX) { // change later
                 throw new Error("Boat out of bounds");
             }
         } else {
@@ -49,7 +49,7 @@ class Gameboard {
                 coordinatesArray.push([x, y+i])
             }
 
-            if (y + (i-1) >= 10) {
+            if (y + (i-1) > this.maxY) {
                 throw new Error("Boat out of bounds");
             }
         }
@@ -77,8 +77,8 @@ class Gameboard {
     }
 
     checkFleetDestruction() {
-        for (let row = 0; row < this.board.length; row+=1) {
-            for(let column = 0; column < this.board[row].length; column+=1) {
+        for (let row = this.minX; row <= this.maxX; row+=1) {
+            for(let column = this.minY; column < this.maxY; column+=1) {
                 const currentCell = this.board[row][column];
                 if (currentCell.value && currentCell.value !== "destroyed" && !(currentCell.value.isSunk())) {
                     return false;
