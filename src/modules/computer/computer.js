@@ -53,12 +53,18 @@ class Computer {
                 const x = Math.floor(Math.random() * 10);
                 const y = Math.floor(Math.random() * 10);
                 const coordinates = [x, y];
-
+                
                 if (this.shotsArr.includes(JSON.stringify(coordinates))) {
                     this.shoot(enemyBoard);
                     return;
                 }
 
+                const cell = enemyBoard.getCell(coordinates);
+                if (cell == null || cell.hit) {
+                    this.shoot(enemyBoard);
+                    return;
+                }
+                
                 this.shotsArr.push(JSON.stringify(coordinates));
                 enemyBoard.receiveAttack(coordinates);
             };
