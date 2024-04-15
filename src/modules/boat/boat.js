@@ -4,6 +4,7 @@ class Boat {
         this.length = length;
         this.hitCount = 0;
         this._isSunk = false;
+        this.coordinatesArr = [];
     };
 
     hit() {
