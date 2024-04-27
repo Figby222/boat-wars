@@ -1,11 +1,12 @@
 // eslint-disable-next-line import/extensions
 import Game from "./game.js";
+import DOMControl from "../dom-control/dom-control.js";
 
 let game;
 let player1Gameboard;
 let player2Gameboard;
 beforeEach(() => {
-    game = new Game("player1");
+    game = new Game(new DOMControl(), "player1");
     player1Gameboard = game.player1.gameboard;
     player2Gameboard = game.player2.gameboard;
 })
