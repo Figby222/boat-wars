@@ -4,8 +4,9 @@ import Computer from "./computer.js";
 import Gameboard from "../gameboard/gameboard.js";
 
 let MockGameboard = {receiveAttack: jest.fn(() => true)};
+let myBoard = new Gameboard();
 beforeEach(() => {
-    MockGameboard = {receiveAttack: jest.fn(() => true)}
+    myBoard = new Gameboard();
 })
 describe("Constructor", () => {
     test("It creates object", () => {
