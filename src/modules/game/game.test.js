@@ -17,8 +17,8 @@ describe("gameOver", () => {
     })
 
     test("It does not return true if not all boats are destroyed", () => {
-        game.player1.gameboard.placeBoat(4, [0, 4]);
-        game.player2.gameboard.placeBoat(4, [0, 4]);
+        game.player1.gameboard.placeBoatHorizontal(4, [0, 4]);
+        game.player2.gameboard.placeBoatHorizontal(4, [0, 4]);
 
         expect(game.checkGameOver()).not.toBeTruthy();
     })
@@ -26,16 +26,16 @@ describe("gameOver", () => {
 
 describe("playRound", () => {
     test("playRound shoots gameboard", () => {
-        player1Gameboard.placeBoat(1, [4, 3]);
-        player2Gameboard.placeBoat(1, [4, 3]);
+        player1Gameboard.placeBoatHorizontal(1, [4, 3]);
+        player2Gameboard.placeBoatHorizontal(1, [4, 3]);
         game.playRound([4, 3]);
 
         expect(game.checkGameOver()).toBeTruthy();
     })
 
     test("It switches turn after each call", () => {
-        player1Gameboard.placeBoat(1, [4, 3]);
-        player2Gameboard.placeBoat(1, [4, 3]);
+        player1Gameboard.placeBoatHorizontal(1, [4, 3]);
+        player2Gameboard.placeBoatHorizontal(1, [4, 3]);
         game.playRound([3, 3]);
         game.playRound([4, 3]);
         
@@ -43,8 +43,8 @@ describe("playRound", () => {
     })
     
     test("Player1 shoots on the first turn", () => {
-        player1Gameboard.placeBoat(1, [4, 3]);
-        player2Gameboard.placeBoat(1, [4, 3]);
+        player1Gameboard.placeBoatHorizontal(1, [4, 3]);
+        player2Gameboard.placeBoatHorizontal(1, [4, 3]);
         game.playRound([4, 3]);
         
         expect(game.checkGameOver()).toBe("player1");
