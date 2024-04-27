@@ -142,3 +142,9 @@ describe("#checkFleet", () => {
         expect(myBoard.checkFleetDestruction()).toBe(true);
     })
 })
+
+describe("#getCell", () => {
+    test("It returns null when x is out of bounds", () => {
+        expect(myBoard.getCell([12, 1])).toBe(null);
+    })
+})

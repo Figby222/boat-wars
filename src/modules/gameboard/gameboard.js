@@ -108,6 +108,10 @@ class Gameboard {
     getCell(coordinates) {
         const [x, y] = coordinates;
 
+        if (x < this.minX || x > this.maxX || y < this.minX || y > this.maxX) {
+            return null;
+        }
+
         return this.board[x][y];
     }
 
