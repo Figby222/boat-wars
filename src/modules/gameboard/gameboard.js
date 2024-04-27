@@ -53,7 +53,6 @@ class Gameboard {
             
             const adjacentCells = this.getAdjacentCellCoordinates([currentX, currentY]);
             adjacentCells.forEach((coordinates) => {
-                console.log(coordinates);
                 if (!this.checkIfOutOfBounds(coordinates) && !(this.getCell(coordinates).value instanceof Boat)) {
                     this.getCell(coordinates).value = "unavailable";
                     boat.adjacentCoordinatesArr.push(coordinates);
@@ -95,7 +94,6 @@ class Gameboard {
 
             const adjacentCells = this.getAdjacentCellCoordinates([currentX, currentY]);
             adjacentCells.forEach((coordinates) => {
-                console.log(coordinates);
                 if (!this.checkIfOutOfBounds(coordinates) && !(this.getCell(coordinates).value instanceof Boat)) {
                     this.getCell(coordinates).value = "unavailable";
                     boat.adjacentCoordinatesArr.push(coordinates);
