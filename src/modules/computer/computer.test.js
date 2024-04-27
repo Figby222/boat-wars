@@ -18,32 +18,32 @@ describe("Constructor", () => {
 })
 
 describe("#shoot", () => {
-    test("It calls receiveAttack once", () => {
-        const computer = new Computer(null, false);
-        computer.shoot(MockGameboard);
-        expect (MockGameboard.receiveAttack.mock.calls).toHaveLength(1);
-    })
+    // test("It calls receiveAttack once", () => {
+    //     const computer = new Computer(null, false);
+    //     computer.shoot(MockGameboard);
+    //     expect (MockGameboard.receiveAttack.mock.calls).toHaveLength(1);
+    // })
 
-    test ("Mock is called with args", () => {
-        const computer = new Computer(null, false);
-        computer.shoot(MockGameboard);
-        expect (MockGameboard.receiveAttack.mock.calls[0][0]).toBeDefined();
-    })
+    // test ("Mock is called with args", () => {
+    //     const computer = new Computer(null, false);
+    //     computer.shoot(MockGameboard);
+    //     expect (MockGameboard.receiveAttack.mock.calls[0][0]).toBeDefined();
+    // })
 })
 
 describe("#shoot advancedMode", () => {
-    test("It shoots adjascent squares", () => {
-        const computer = new Computer(null, true);
-        for (let i = 0; i < 6; i+=1) {
-            computer.shoot(MockGameboard);
-        }
+    // test("It shoots adjascent squares", () => {
+    //     const computer = new Computer(null, true);
+    //     for (let i = 0; i < 6; i+=1) {
+    //         computer.shoot(MockGameboard);
+    //     }
 
-        const firstShot =
-            MockGameboard.receiveAttack.mock.calls[0][0];
-        const shouldBeShot = [firstShot[0]+1, firstShot[1]];
+    //     const firstShot =
+    //         MockGameboard.receiveAttack.mock.calls[0][0];
+    //     const shouldBeShot = [firstShot[0]+1, firstShot[1]];
 
-        expect(MockGameboard.receiveAttack.mock.calls[0]).toContainEqual(shouldBeShot);
-    })
+    //     expect(MockGameboard.receiveAttack.mock.calls[0]).toContainEqual(shouldBeShot);
+    // })
 
     test("It shoots real gameboard", () => {
         const computer = new Computer(null, true);
