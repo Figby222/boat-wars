@@ -24,7 +24,7 @@ DOMControl.prototype.renderPlayer1Gameboard = function(game, gameboard, setVisib
             }
 
             
-            if (cellContainer.classList.contains("notShot")) {
+            if (!(cell.hit)) {
                 cellContainer.addEventListener("click", () => {
                     game.playRound([x, y]);
                 })
@@ -52,7 +52,7 @@ DOMControl.prototype.renderPlayer2Gameboard = function(game, gameboard, setVisib
             }
 
             
-            if (cellContainer.classList.contains("notShot")) {
+            if (!(cell.hit)) {
                 cellContainer.addEventListener("click", () => {
                     game.playRound([x, y]);
                 })
